@@ -13,10 +13,10 @@ $POSTGRESQL_PASSWORD
 $POSTGRESQL_PASSWORD
 su - postgres
 $POSTGRESQL_PASSWORD
-createuser sonar
+createuser sonarqube
 psql
-ALTER USER sonar WITH ENCRYPTED password '$SONAR_PASSWORD'
-CREATE DATABASE sonar OWNER sonar
+ALTER USER sonarqube WITH ENCRYPTED password '$SONAR_PASSWORD'
+CREATE DATABASE sonarqube OWNER sonarqube
 \q
 exit
 
@@ -28,7 +28,7 @@ unzip $SONARQUBE.zip -d /opt
 mv /opt/$SONARQUBE /opt/sonarqube -v
 
 nano /opt/sonarqube/conf/sonar.properties
-sonar.jdbc.username=sonar
+sonar.jdbc.username=sonarqube
 sonar.jdbc.password=$SONAR_PASSWORD
 sonar.jdbc.url=jdbc:postgresql://localhost/sonar?currentSchema=my_schema
 #sonar.search.javaOpts=-Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError
@@ -47,15 +47,18 @@ Type=forking
 ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
 ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
 
-User=root
-Group=root
+User=sonar
+Group=sonar
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 ctrl+x
 y
-
+groupadd sonar
+useradd -c "Sonar System User" -d /opt/sonarqube -g sonar -s /bin/bash sonar
+chown -R sonar:sonar /opt/sonarqube
+nano /etc/sonarqube/bin/linux-x86-64/sonar.sh
 systemctl enable sonar
 systemctl status sonar
 q
