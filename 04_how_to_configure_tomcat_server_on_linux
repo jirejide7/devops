@@ -30,5 +30,5 @@ ctrl+x
 y
 systemctl restart tomcat8
 systemctl status tomcat8
-curl localhost:$PORT
 exit
+curl localhost:$PORT

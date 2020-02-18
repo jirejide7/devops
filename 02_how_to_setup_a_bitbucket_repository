@@ -27,10 +27,3 @@ Menu
 
 Click on $USERNAME
 Click on $PROJECTNAME
-
-# terminal
-ls -la
-git clone git@bitbucket.org:$USERNAME/$PROJECTNAME.git
-ls -la
-cd projectname
-ls -la

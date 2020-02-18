@@ -2,6 +2,11 @@ sudo apt install -y maven
 mvn --version
 pwd # should be $PROJECTNAME
 
+ls -la
+git clone git@bitbucket.org:$USERNAME/$PROJECTNAME.git
+ls -la
+cd projectname
+ls -la
 # Build a simple web app
 mvn archetype:generate -DgroupId=com.mkyong -DartififactId=$PROJECTNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ls -la
