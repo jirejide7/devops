@@ -10,18 +10,17 @@ http://$JENKINS_URL:$JENKINS_PORT
             - Job - Build, Read, Workspace    
     - CSRF Protection
       - Uncheck prevent Cross Site Request Forgery Exploits
+    Save
 
 - New Item
-    - Enter an Item name > build_on_scm_push
-    - Freestyle Project > OK
-      - Source Code Management > Git
-        - Repository URL > https://bitbucket.org/$GIT_USERNAME/$$PROJECTNAME
+  - Enter an Item name > build_on_scm_push
+  - Freestyle Project > OK
+    - Source Code Management > Git
+    - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
     - Credentials > select $GIT_USERNAME/******(Bitbucket Key)
-
     - Build Triggers
       - Trigger builds remotely (e.g., from scripts)
         - Authentication Token - $PROJECT_NAME_TOKEN
-
     - Build > Add Build step > invoke top level maven targets
         - Maven Version > Maven3
         - Goals - clean install
@@ -35,13 +34,14 @@ http://$JENKINS_URL:$JENKINS_PORT
     - Add post-build action
         - Deploy war/ear to a container
             - WAR/EAR files > **/*.war
-            - Containers > Add container > Tomcat 8.x Remote
+            - Containers > Add container > Tomcat X.x Remote
                     - Credentials
                         - select $TOMCAT_USERNAME/******($TOMCAT_CREDENTIALS)
                     - Tomcat URL > http://localhost:$TOMCAT_PORT
     Save
 
 https://Bitbucket.org
+$USERNAME
 - $PROJECTNAME
 - Menu
   - Settings
