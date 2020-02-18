@@ -20,7 +20,8 @@ CREATE DATABASE sonar OWNER sonar
 \q
 exit
 
-SONARQUBE=sonarqube-8.1.0.31237
+cd ~
+SONARQUBE=sonarqube-8.1.0.31237 # the version number will change over time
 wget https://binaries.sonarsource.com/Distribution/sonarqube/$SONARQUBE.zip
 apt install -y unzip
 unzip $SONARQUBE.zip -d /opt
@@ -57,7 +58,8 @@ y
 
 systemctl enable sonar
 systemctl status sonar
+q
 systemctl start sonar
-
+systemctl status sonar
 tail -f /opt/sonarqube/logs/sonar.log
 ctrl+c
