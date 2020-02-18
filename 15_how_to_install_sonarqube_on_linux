@@ -1,0 +1,63 @@
+sudo su
+apt update
+apt install -y postgresql-common default-jdk
+sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+Enter
+apt update
+apt install -y postgresql postgresql-contrib pgadmin4
+apt full-upgrade
+
+systemctl status postgresql
+passwd postgres
+$POSTGRESQL_PASSWORD
+$POSTGRESQL_PASSWORD
+su - postgres
+$POSTGRESQL_PASSWORD
+createuser sonar
+psql
+ALTER USER sonar WITH ENCRYPTED password '$SONAR_PASSWORD'
+CREATE DATABASE sonar OWNER sonar
+\q
+exit
+
+SONARQUBE=sonarqube-8.1.0.31237
+wget https://binaries.sonarsource.com/Distribution/sonarqube/$SONARQUBE.zip
+apt install -y unzip
+unzip $SONARQUBE.zip -d /opt
+mv /opt/$SONARQUBE /opt/sonarqube -v
+
+nano /opt/sonarqube/conf/sonar.properties
+sonar.jdbc.username=sonar
+sonar.jdbc.password=$SONAR_PASSWORD
+sonar.jdbc.url=jdbc:postgresql://localhost/sonar?currentSchema=my_schema
+#sonar.search.javaOpts=-Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError
+#sonar.web.javaOpts=-Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
+#sonar.ce.javaOpts=-Xmx256m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
+ctrl+x
+y
+nano /etc/systemd/system/sonar.service
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+
+User=root
+Group=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+ctrl+x
+y
+
+systemctl enable sonar
+systemctl status sonar
+systemctl start sonar
+
+tail -f /opt/sonarqube/logs/sonar.log
+ctrl+c

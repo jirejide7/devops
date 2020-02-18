@@ -1,0 +1,23 @@
+# How to provision an EC2 instance at amazonaws.com
+AWS Console
+EC2
+Launch Instance
+Choose Amazon Machine Image
+Free Tier Linux Machine Image
+t2.small, 2GB Memory
+tag - Name $COMPUTER_NAME
+$SECURITY_GROUP_NAME
+Port Range 22 > Source > My IP
+Add Rule > Port Range > 8080 > Source > Anywhere
+Add Rule > Port Range > 8090 > Source > Anywhere
+Add Rule > Port Range > 9000 > Source > Anywhere
+Review and Launch
+Create KeyPair or Use Existing Key Pair
+Download KeyPair
+Launch Instance
+
+# at command line
+chmod 400 $KEY_PAIR_NAME.pem
+ssh -i "$KEY_PAIR_NAME.pem" $USERNAME@$DNSNAME.compute.amazonaws.com
+sudo apt update
+sudo apt full-upgrade -y

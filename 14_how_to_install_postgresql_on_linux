@@ -1,0 +1,21 @@
+sudo su
+apt update
+apt install -y postgresql-common
+sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+Enter
+apt update
+apt install -y postgresql postgresql-contrib pgadmin4
+apt full-upgrade
+
+systemctl status postgresql
+passwd postgres
+$POSTGRESQL_PASSWORD
+$POSTGRESQL_PASSWORD
+su - postgres
+$POSTGRESQL_PASSWORD
+createuser $POSTGRESQL_USERNAME
+psql
+ALTER USER $POSTGRESQL_USERNAME WITH ENCRYPTED password '$POSTGRESQL_PASSWORD'
+CREATE DATABASE $POSTGRESQL_USERNAME OWNER $POSTGRESQL
+\q
+exit

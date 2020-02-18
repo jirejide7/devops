@@ -1,0 +1,11 @@
+# Startup script for DevOps environment
+sudo su
+wget -qO - https://pkg.jenkins.io/debian/jenkins-ci.org.key | apt-key add -
+echo deb http://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list.d/jenkins.list
+apt update
+apt install -y git openjdk-11-jdk wget jenkins maven tomcat9 tomcat9-docs tomcat9-examples tomcat9-admin
+java -version
+mvn --version
+
+
+cat /var/lib/jenkins/secrets/initialAdminPassword

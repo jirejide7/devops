@@ -1,0 +1,16 @@
+# How to create an end-to-end CD pipeline
+
+What is the Requirement? - Setup MyAwesomeApp Java Project using Maven in Bitbucket and Automate end to end Builds, Code quality checks, Deployments and Collaboration using Jenkins and other Devops tools we have used so far. Could you please work on below lab exercise on a brand new EC2 instance(small instance) ?
+
+Lab Exercise Steps:
+1. Also, create a repo called MyAwesomeRepo in bitbucket. (lab exercise # 2)
+2. Create a Java project called MyAwesomeApp (instead of MyWebApp which we did before (lab exercise #2) using Maven.
+3. Set the above project in Bitbucket(lab exercise #2)
+4. Set up a free style job called MyAwesomeFreeStyleJob (use Poll SCM for 2 mins) in Jenkins and automate builds, deployments to Tomcat server (lab exercise #3). Also integrate with SonarQube to see the code quality report(lab exercise #6). Finally Jenkins should deploy to Tomcat after 2 mins if there is a code change(lab #5). Also jenkins should upload WAR into Nexus as well. (lab exercise # 08). And send notifications to Slack(lab exercise # 09)
+5. Set up a pipeline called MyAwesomePipeline to do builds, deployments(lab exercise #11)
+but with Webhooks.( lab exercise #4). So Jenkins should deploy to Tomcat immediately if there is a code change. And send notifications to Slack(lab exercise # 09)
+6. Finally show the below output in Tomcat by modifying index.jsp (lab exercise #4 or #5) in your java project. 
+       Hello Welcome to My Awesome App!!! I am on AWS Cloud with Git, Jenkins, Maven and tomcat
+7. SonarQube dashboard should be viewed in Sonarqube.
+8. Nexus should show uploaded artifacts as well.
+9. Slack should show the message coming from Jenkins for every build success/failure.

@@ -1,0 +1,15 @@
+# at command line
+sudo apt install -y wget
+wget -qO - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+echo deb http://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+sudo apt update
+sudo apt install -y jenkins
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+# On Browser
+open http://$SERVER_IPADDRESS:$PORT
+install suggested plugins
+Create User
+Save and Continue
+Save and Finish
+Start using Jenkins

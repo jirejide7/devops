@@ -1,0 +1,11 @@
+sudo apt install -y maven
+mvn --version
+pwd # should be $PROJECTNAME
+
+# Build a simple web app
+mvn archetype:generate -DgroupId=com.mkyong -DartififactId=$PROJECTNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+ls -la
+git status
+git add .
+git commit -m "1st commit - Created webapp template and uploaded to Bitbucket"
+git push
