@@ -29,6 +29,4 @@ AWS Console
 # at command line
 chmod 400 $KEY_PAIR_NAME.pem
 ssh -i $KEY_PAIR_NAME.pem ubuntu@$DNSNAME.compute.amazonaws.com
-sudo su
-apt update
-exit
+sudo apt update

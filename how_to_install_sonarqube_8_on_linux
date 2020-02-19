@@ -14,39 +14,53 @@ exit
 
 cd ~
 sudo su
-SONARQUBE=sonarqube- # the version number will change over time
+SONARQUBE=sonarqube-8.1.0.31237 # the version number will change over time
 wget https://binaries.sonarsource.com/Distribution/sonarqube/$SONARQUBE.zip
 apt install -y unzip
 unzip $SONARQUBE.zip -d /opt
+ls /opt
 mv /opt/$SONARQUBE /opt/sonarqube -v
+ls /opt
 
 nano /opt/sonarqube/conf/sonar.properties
 sonar.jdbc.username=sonarqube
 sonar.jdbc.password=$SONAR_PASSWORD
 sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+sonar.web.javaOpts=-server
+sonar.path.data=/var/sonarqube/data
+sonar.path.temp=/var/sonarqube/temp
 ctrl+x
 y
 
-nano /etc/systemd/system/sonar.service
+nano /opt/sonarqube/conf/wrapper.conf
+wrapper.java.command=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+ctrl+x
+y
+
+nano /etc/systemd/system/sonarqube.service
 [Unit]
 Description=SonarQube service
 After=syslog.target network.target
 
 [Service]
-Type=forking
-
-ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
-ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+Type=simple
 
 User=sonarqube
 Group=sonarqube
-Restart=always
+PermissionsStartOnly=true
 
-LimitNOFILE=65536
-LimitNPROC=4096
+ExecStart=/bin/nohup /usr/lib/jvm/java-11-openjdk-amd64/bin/java -Xms32m -Xmx32m -Djava.net.preferIPv4Stack=true -jar /opt/sonarqube/lib/sonar-application-8.1.0.31237.jar
+StandardOutput=syslog
+
+LimitNOFILE=655356
+LimitNPROC=8192
+TimeoutStartSec=5
+Restart=always
+SuccessExitStatus=143
 
 [Install]
 WantedBy=multi-user.target
+
 ctrl+x
 y
 
@@ -62,23 +76,22 @@ sysctl -w fs.file-max=65536
 
 groupadd sonarqube
 useradd -c "Sonar System User" -d /opt/sonarqube -g sonarqube sonarqube
-chown -R sonarqube:sonarqube /opt/sonarqube
+chown -R sonarqube:sonarqube /opt/sonarqube/data
+chwon -R sonarqube:sonarqube /opt/sonarqube/extensions
+mdkir -p /var/sonarqube/data /var/sonarqube/temp
+chown -R sonarqube:sonarqube /var/sonarqube/data
+chown -R sonarqube:sonarqube /var/sonarqube/temp
 
-nano /opt/sonarqube/bin/linux-x86-64/sonar.sh
-RUN_AS_USER=sonarqube
-ctrl + x
-y
-
-#sudo su sonarqube
-systemctl status sonar
+sudo systemctl status sonarqube.service
 q
-systemctl enable sonar
-systemctl status sonar
+systemctl enable sonarqube.service
+exit
+systemctl status sonarqube.service
 q
-systemctl start sonar
-systemctl status sonar
+systemctl start sonarqube.service
+systemctl status sonarqube.service
 q
 cat /opt/sonarqube/logs/sonar.log
 cat /opt/sonarqube/logs/es.log
 
-curl localhost:9000ca
+curl localhost:9000
