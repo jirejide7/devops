@@ -1,0 +1,7 @@
+Jenkins
+- Manage Jenkins
+  - Manage Plugins
+    - Available
+    - Filter > SonarQube
+      - SonarQube Scanner
+    - Install without restart

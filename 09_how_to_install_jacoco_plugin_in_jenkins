@@ -1,0 +1,7 @@
+Jenkins
+- Manage Jenkins
+ - Manage Plugins
+   - Available
+   - Filter > Jacoco
+     - Jacoco
+   - Install without restart

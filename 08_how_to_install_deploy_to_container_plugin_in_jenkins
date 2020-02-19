@@ -1,0 +1,7 @@
+Jenkins
+- Manage Jenkins
+ - Manage Plugins
+   - Available
+   - Filter > Deploy to Container
+     - Deploy to Container
+   - Install without restart
