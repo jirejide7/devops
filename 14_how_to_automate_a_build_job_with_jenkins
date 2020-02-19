@@ -1,5 +1,6 @@
 # how to trigger a build with Poll SCM
-$SERVER_IP:8090/$PROJECTNAME/
+# in browser
+http://$EC2_INSTANCE_IP:$TOMCAT_PORT/$PROJECTNAME/
 http://$JENKINS_URL:$JENKINS_PORT
 Jenkins
 - New Item
@@ -9,7 +10,7 @@ Jenkins
         - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
         - Credentials > select $GIT_USERNAME/******(Bitbucket Key)
     - Build Triggers > Poll SCM > H/XX * * * *
-    # XX equal minutes where 02 means Poll SCM for changes every 2 minutes
+      # XX equal minutes, where 02 means Poll SCM for changes every 2 minutes
     - Build > Add Build step > invoke top level maven targets
       - Maven Version > Maven3
       - Goals - clean install
