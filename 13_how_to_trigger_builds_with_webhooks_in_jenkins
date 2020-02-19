@@ -64,7 +64,7 @@ nano index.jsp
 <body>
 <h2>DevOps Engineer</h2>
 <p>XXX-XXX-XXX or $USERNAME@$DOMAIN</p>
-<p>Below is a list of things I have done so far</p>
+<p>My name is $FIRSTNAME $LASTNAME and below is a list of things I have done so far</p>
 <p>
 - Setup <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
 - Setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket repositories</a><br>
