@@ -22,7 +22,7 @@ Menu
     - Security
       - SSH Keys
         - Add key
-          - Label - DevOpsEngineerKey
+          - Label - DevOpsEngineerSSHKey
           - Key - paste contents of ~/.ssh/id_rsa.pub
           - Add Key
 
