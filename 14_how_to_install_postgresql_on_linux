@@ -1,3 +1,4 @@
+cd ~
 sudo su
 apt update
 apt install -y postgresql-common
@@ -6,16 +7,5 @@ Enter
 apt update
 apt install -y postgresql postgresql-contrib pgadmin4
 apt -y full-upgrade
+exit
 
-systemctl status postgresql
-passwd postgres
-$POSTGRESQL_PASSWORD
-$POSTGRESQL_PASSWORD
-su - postgres
-createuser $POSTGRESQL_USERNAME
-psql
-ALTER USER $POSTGRESQL_USERNAME WITH ENCRYPTED password '$POSTGRESQL_PASSWORD'
-CREATE DATABASE $POSTGRESQL_USERNAME OWNER $POSTGRESQL
-\q
-exit
-exit
