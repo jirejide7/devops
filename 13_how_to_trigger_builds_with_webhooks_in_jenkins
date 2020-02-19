@@ -60,7 +60,7 @@ $USERNAME
 cd ~/$$PROJECTNAME/$$PROJECTNAME/src/main/webapp
 nano index.jsp
 <html>
-<head>$MY_NAME</head>
+<title>$MY_NAME</title>
 <body>
 <h2>DevOps Engineer</h2>
 <p>XXX-XXX-XXXX <a href="mailto:$USERNAME@g$DOMAIN">$USERNAME@$DOMAIN</a></p>
