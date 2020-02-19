@@ -13,8 +13,10 @@ ls
 
 git status
 git add .
-git commit -m "1st commit - Created webapp template and uploaded to Bitbucket"
+git commit -m "1st commit - Created webapp template and uploaded to SCM"
 git push
 
+curl localhost:$TOMCAT_PORT/$PROJECTNAME
+
 # In browser
-$SERVER_IP:8090/$PROJECTNAME/
+$SERVER_IP:$TOMCAT_PORT/$PROJECTNAME/
