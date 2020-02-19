@@ -1,0 +1,28 @@
+http://$JENKINS_URL:$JENKINS_PORT
+- New Item
+  - Enter an Item name > build_on_scm_push
+  - Freestyle Project > OK
+    - Source Code Management > Git
+    - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
+    - Credentials > select $GIT_USERNAME/******(Bitbucket Key)
+    - Build Triggers
+      - Trigger builds remotely (e.g., from scripts)
+        - Authentication Token - $PROJECT_TOKEN
+    - Build > Add Build step > invoke top level maven targets
+        - Maven Version > Maven3
+        - Goals - clean install
+        - Advanced
+          - POM > $$PROJECTNAME/pom.xml
+    Post Build Actions
+    - Add post-build action
+        - Archive the artifacts > Files to archive > **/*.war
+    - Add post-build action
+        - Record JaCoCo coverage report
+    - Add post-build action
+        - Deploy war/ear to a container
+            - WAR/EAR files > **/*.war
+            - Containers > Add container > Tomcat X.x Remote
+                    - Credentials
+                        - select $TOMCAT_USERNAME/******($TOMCAT_CREDENTIALS)
+                    - Tomcat URL > http://localhost:$TOMCAT_PORT
+    Save

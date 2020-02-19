@@ -1,0 +1,13 @@
+http://$JENKINS_URL:$JENKINS_PORT
+- Manage Jenkins
+  - Configure Global Security
+    - Access Control    
+      - Authorization
+        - Matrix-Based security
+          - Anonymous Users
+            - Overall - Read
+            - Job - Build, Read, Workspace    
+    - CSRF Protection
+      - Uncheck prevent Cross Site Request Forgery Exploits
+    Save
+

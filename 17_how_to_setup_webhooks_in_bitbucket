@@ -1,0 +1,16 @@
+https://Bitbucket.org
+$USERNAME
+- $PROJECTNAME
+- Menu
+  - Settings
+    - Workflow
+      - Webhooks
+        - Add Webhook
+          - Title - JenkinsWebhook
+          - URL > $JENKINS_URL/job/build_on_scm_push/build?token=$PROJECT_TOKEN
+          - Status - Active 
+          - SSL / TLS - skip certificate verification
+          - Request History - Enable request history collection
+          - Repository Push
+          - Save
+        - View Requests
