@@ -1,13 +1,15 @@
 systemctl status postgresql
 q
+
 sudo passwd postgres
 $POSTGRESQL_PASSWORD
 $POSTGRESQL_PASSWORD
+
 su - postgres
-$POSTGRESQL_PASSWORD
-createuser sonarqube
+createuser sonar
 psql
-ALTER USER sonarqube WITH ENCRYPTED password '$SONARQUBE_PASSWORD'
-CREATE DATABASE sonarqube OWNER sonarqube
+ALTER USER sonar WITH ENCRYPTED password 'sonar';
+CREATE DATABASE sonarqube OWNER sonar;
+GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonar;
 \q
 exit
