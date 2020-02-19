@@ -6,8 +6,4 @@ sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 Enter
 apt update
 apt install -y postgresql postgresql-contrib pgadmin4
-apt -y full-upgrade
-Enter
-install the package maintainer's version
-Enter
 exit
