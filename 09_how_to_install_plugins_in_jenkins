@@ -2,16 +2,16 @@ Jenkins
 - Manage Jenkins
   - Manage Plugins
     - Available
-      - Filter > SonarQube
-        - SonarQube Scanner
-      - Install without restart
+    - Filter > SonarQube
+      - SonarQube Scanner
+    - Install without restart
  - Manage Plugins
    - Available
-     - Filter > Deploy to Container
-       - Deploy to Container
-     - Install without restart
+   - Filter > Deploy to Container
+     - Deploy to Container
+   - Install without restart
  - Manage Plugins
    - Available
-     - Filter > Jacoco
-       - Jacoco
-     - Install without restart
+   - Filter > Jacoco
+     - Jacoco
+   - Install without restart
