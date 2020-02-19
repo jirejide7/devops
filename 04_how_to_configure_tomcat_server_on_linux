@@ -1,18 +1,24 @@
+X=9
+PORT=8090
+
 sudo su
-apt install -y tomcat8 tomcat8-docs tomcat8-examples tomcat8-admin
-cp -r /usr/share/tomcat8-admin/* /var/lib/tomcat8/webapps/ -v
-nano /var/lib/tomcat8/conf/server.xml
+apt install -y tomcat$X tomcat$X-docs tomcat$X-examples tomcat$X-admin
+cp -r /usr/share/tomcat$X-admin/* /var/lib/tomcat$X/webapps/ -v
+nano /var/lib/tomcatX/conf/server.xml
 <Connector port="$PORT" protocol="HTTP/1.1">
 ctrl+x
 y
-nano /var/lib/tomcat8/conf/tomcat-users.xml # place before </tomcat-users>
+
+# place before </tomcat-users>
+nano /var/lib/tomcat$X/conf/tomcat-users.xml 
 <role rolename="manager-gui"/>
 <role rolename="manager-script"/>
 <user username="$USERNAME" password="$PASSWORD" roles="manager-gui"/>
-<user username="$TOMCAT_MANAGER_SCRIPT_USERNAME" password="$TOMCAT_MANAGER_SCRIPT_PASSWORD" roles="manager-script"/>
+<user username="$TOMCAT_MANAGER_SCRIPT_USERNAME" password="jenkins" roles="manager-script"/>
 ctrl+x
 y
-nano /etc/default/tomcat8
+
+nano /etc/default/tomcat$X
 JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom"
 ctrl+x
 y
@@ -28,7 +34,7 @@ nano /etc/default/tomcat8
 JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xmx512m -XX:MaxPermSize=512m"
 ctrl+x
 y
-systemctl restart tomcat8
-systemctl status tomcat8
+systemctl restart tomcat$X
+systemctl status tomcat$X
 exit
 curl localhost:$PORT
