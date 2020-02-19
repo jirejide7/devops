@@ -19,11 +19,12 @@ Click on $USERNAME
 Menu
 - Security
   - Settings
-    - SSH Keys
-      - Add key
-        - Label - $SSH_KEY_LABEL
-        - Key - paste contents of ~/.ssh/id_rsa.pub
-        - Add Key
+    - Security
+      - SSH Keys
+        - Add key
+          - Label - $SSH_KEY_LABEL
+          - Key - paste contents of ~/.ssh/id_rsa.pub
+          - Add Key
 
 Click on $USERNAME
 Click on $PROJECTNAME
