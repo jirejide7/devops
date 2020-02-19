@@ -1,0 +1,110 @@
+http://$JENKINS_URL:$JENKINS_PORT
+- Manage Jenkins
+  - Configure Global Security
+    - Access Control    
+      - Authorization
+        - Matrix-Based security
+          - Anonymous Users
+            - Overall - Read
+            - Job - Build, Read, Workspace    
+    - CSRF Protection
+      - Uncheck prevent Cross Site Request Forgery Exploits
+    Save
+
+- New Item
+  - Enter an Item name > build_on_scm_push
+  - Freestyle Project > OK
+    - Source Code Management > Git
+    - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
+    - Credentials > select $GIT_USERNAME/******(Bitbucket Key)
+    - Build Triggers
+      - Trigger builds remotely (e.g., from scripts)
+        - Authentication Token - $PROJECT_TOKEN
+    - Build > Add Build step > invoke top level maven targets
+        - Maven Version > Maven3
+        - Goals - clean install
+        - Advanced
+          - POM > $$PROJECTNAME/pom.xml
+    Post Build Actions
+    - Add post-build action
+        - Archive the artifacts > Files to archive > **/*.war
+    - Add post-build action
+        - Record JaCoCo coverage report
+    - Add post-build action
+        - Deploy war/ear to a container
+            - WAR/EAR files > **/*.war
+            - Containers > Add container > Tomcat X.x Remote
+                    - Credentials
+                        - select $TOMCAT_USERNAME/******($TOMCAT_CREDENTIALS)
+                    - Tomcat URL > http://localhost:$TOMCAT_PORT
+    Save
+
+https://Bitbucket.org
+$USERNAME
+- $PROJECTNAME
+- Menu
+  - Settings
+    - Workflow
+      - Webhooks
+        - Add Webhook
+          - Title - JenkinsWebhook
+          - URL > $JENKINS_URL/job/$PROJECTNAME/build?token=$PROJECT_NAME_TOKEN
+          - Status - Active 
+          - SSL / TLS - skip certificate verification
+          - Request History - Enable request history collection
+          - Repository Push
+          - Save
+        - View Requests
+
+# at Terminal
+cd ~/$$PROJECTNAME/$$PROJECTNAME/src/main/webapp
+nano index.jsp
+<html>
+<head><title>$MY_NAME</title></head>
+<body>
+<h2>DevOps Engineer</h2>
+<p>XXX-XXX-XXXX <a href="mailto:$USERNAME@g$DOMAIN">$USERNAME@$DOMAIN</a></p>
+<p>My name is $FIRSTNAME $LASTNAME and below is a list of things I have done so far</p>
+<p>
+- Setup <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
+- Setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket repositories</a><br>
+- Installed <a href="https://en.wikipedia.org/wiki/Git">Git</a> on Linux<br>
+- Configured <a href="http://tomcat.apache.org/">Tomcat</a> Servers on Linux<br>
+- Installed <a href="https://www.java.com/en/">Java</a> on Linux<br>
+- Built <a href="https://www.java.com/en/">Java</a> web apps with <a href="https://maven.apache.org/">Maven</a><br>
+- Installed <a href="https://jenkins.io/">Jenkins</a> on Linux<br>
+- <a href="https://jenkins.io/solutions/java/">Configured Maven in Jenkins</a><br>
+- Installed SonarQube, Deploy as Container and Jacoco <a href="https://jenkins.io/doc/book/managing/plugins/">plugins in Jenkins</a><br>
+- <a href="https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html">Setup Bitbucket app passwords for Jenkins</a><br>
+- Setup Tomcat credentials in Jenkins<br>
+- Automated build jobs in Jenkins to Poll SCM every XX minutes<br>
+- Setup triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate build on SCM push<br>
+</p>
+</body>
+</html>
+ctrl+x
+y
+git add index.jsp
+git commit -m "modified index.jsp to reflect current skill level"
+git push
+curl $SERVER_IP:8090/$$PROJECTNAME/
+
+https://Bitbucket.org
+- $PROJECTNAME
+- Menu
+  - Settings
+    - Workflow
+      - Webhooks
+        - JenkinsWebhook - View requests
+          - repo:push - View details
+            - Body
+              - Show request body
+  - $PROJECTNAME
+    - $PROJECTNAME
+      - src/main/webapp/index.jsp
+
+http://$JENKINS_URL:$JENKINS_PORT
+- build_on_scm_push
+  - click on build number
+    - Changes
+  - Console Output
