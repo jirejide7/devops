@@ -1,3 +1,7 @@
+JENKINS_PORT=8080
+TOMCAT_PORT=8090
+SONARQUBE_PORT=9000
+
 # How to provision an EC2 instance at amazonaws.com
 AWS Console
 - EC2
@@ -16,9 +20,9 @@ AWS Console
               - Description: DevOps Security Group
 
         - Port Range 22 > Source > My IP
-        - Add Rule > Port Range > 8080
-        - Add Rule > Port Range > 8090
-        - Add Rule > Port Range > 9000 > Source > Anywhere
+        - Add Rule > Port Range > $JENKINS_PORT
+        - Add Rule > Port Range > $TOMCAT_PORT
+        - Add Rule > Port Range > $SONARQUBE_PORT > Source > Anywhere
   - Review and Launch
   - Launch
     - Create a new key pair
