@@ -1,4 +1,3 @@
-# how to trigger a build from repository changes - Push
 http://$JENKINS_URL:$JENKINS_PORT
 - Manage Jenkins
   - Configure Global Security
@@ -20,7 +19,7 @@ http://$JENKINS_URL:$JENKINS_PORT
     - Credentials > select $GIT_USERNAME/******(Bitbucket Key)
     - Build Triggers
       - Trigger builds remotely (e.g., from scripts)
-        - Authentication Token - $PROJECT_NAME_TOKEN
+        - Authentication Token - $PROJECT_TOKEN
     - Build > Add Build step > invoke top level maven targets
         - Maven Version > Maven3
         - Goals - clean install
@@ -61,27 +60,26 @@ $USERNAME
 cd ~/$$PROJECTNAME/$$PROJECTNAME/src/main/webapp
 nano index.jsp
 <html>
+<head>$MY_NAME</head>
 <body>
-<h2>Hi, Thanks for visiting my website. My name is Jacob Itegboje and currently I am a DevOps Engineer.</h2>
-<br>
-Below is a list of things I have done
-<br>
-
-- Setup EC2 instances<br>
-- Setup Bitbucket repositories<br>
-- Installed Git on Linux<br>
-- Configured Tomcat8 Servers on Linux<br>
-- Installed Java on Linux<br>
-- Built Java web apps with Maven<br>
-- Installed Jenkins on Linux<br>
-- Configured Maven in Jenkins<br>
-- Installed SonarQube, Deploy as Container and Jacoco plugins in Jenkins<br>
-- Setup Bitbucket credentials in Jenkins<br>
+<h2>DevOps Engineer</h2>
+<p>XXX-XXX-XXX or $USERNAME@$DOMAIN</p>
+<p>Below is a list of things I have done so far</p>
+<p>
+- Setup <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
+- Setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket repositories</a><br>
+- Installed <a href="https://en.wikipedia.org/wiki/Git">Git</a> on Linux<br>
+- Configured <a href="http://tomcat.apache.org/">Tomcat</a> Servers on Linux<br>
+- Installed <a href="https://www.java.com/en/">Java</a> on Linux<br>
+- Built <a href="https://www.java.com/en/">Java</a> web apps with <a href="https://maven.apache.org/">Maven</a><br>
+- Installed <a href="https://jenkins.io/">Jenkins</a> on Linux<br>
+- <a href="https://jenkins.io/solutions/java/">Configured Maven in Jenkins</a><br>
+- Installed SonarQube, Deploy as Container and Jacoco <a href="https://jenkins.io/doc/book/managing/plugins/">plugins in Jenkins</a><br>
+- <a href="https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html">Setup Bitbucket app passwords for Jenkins</a><br>
 - Setup Tomcat credentials in Jenkins<br>
 - Automated build jobs in Jenkins to Poll SCM every XX minutes<br>
-- Setup triggers in Jenkins with webhooks to automate build on SCM push<br>
-<br>
-You can reach me at XXX-XXX-XXX or $USERNAME@$DOMAIN<br> 
+- Setup triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate build on SCM push<br>
+</p>
 </body>
 </html>
 ctrl+x

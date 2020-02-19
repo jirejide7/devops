@@ -14,7 +14,7 @@ nano /var/lib/tomcat$X/conf/tomcat-users.xml
 <role rolename="manager-gui"/>
 <role rolename="manager-script"/>
 <user username="$USERNAME" password="$PASSWORD" roles="manager-gui"/>
-<user username="$TOMCAT_MANAGER_SCRIPT_USERNAME" password="jenkins" roles="manager-script"/>
+<user username="MANAGER_SCRIPT_USERNAME" password="$MANAGER_SCRIPT_PASSWORD" roles="manager-script"/>
 ctrl+x
 y
 
