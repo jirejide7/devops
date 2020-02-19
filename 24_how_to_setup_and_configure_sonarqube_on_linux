@@ -48,7 +48,8 @@ sysctl -w fs.file-max=65536
 
 groupadd sonarqube
 useradd -c "Sonar System User" -d /opt/sonarqube -g sonarqube sonarqube
-chown -R sonarqube:sonarqube /opt/sonarqube
+chown -R sonarqube:sonarqube /opt/sonarqube/data
+chown -R sonarqube:s
 
 nano /opt/sonarqube/bin/linux-x86-64/sonar.sh
 RUN_AS_USER=sonarqube
