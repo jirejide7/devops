@@ -1,52 +1,37 @@
 # at Terminal
-cd ~/$PROJECTNAME/$$PROJECTNAME/src/main/webapp
-nano index.jsp
+nano ~/$PROJECTNAME/$PROJECTNAME/src/main/webapp/index.jsp
 <html>
-<head><title>$MY_NAME</title></head>
+<head><title>$FIRST_NAME $LAST_NAME</title></head>
 <body>
 <h2>DevOps Engineer</h2>
 <p>XXX-XXX-XXXX <a href="mailto:$USERNAME@g$DOMAIN">$USERNAME@$DOMAIN</a></p>
-<p>My name is $FIRSTNAME $LASTNAME and below is a list of things I have done so far</p>
+<p>Welcome! My name is $FIRSTNAME $LASTNAME and below is a list of things I have accomplished so far</p>
 <p>
 - Setup <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
 - Setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket repositories</a><br>
 - Installed <a href="https://en.wikipedia.org/wiki/Git">Git</a> on Linux<br>
-- Configured <a href="http://tomcat.apache.org/">Tomcat</a> Servers on Linux<br>
 - Installed <a href="https://www.java.com/en/">Java</a> on Linux<br>
+- Configured <a href="http://tomcat.apache.org/">Tomcat</a> Servers on Linux<br>
 - Built <a href="https://www.java.com/en/">Java</a> web apps with <a href="https://maven.apache.org/">Maven</a><br>
 - Installed <a href="https://jenkins.io/">Jenkins</a> on Linux<br>
 - <a href="https://jenkins.io/solutions/java/">Configured Maven in Jenkins</a><br>
-- Installed SonarQube, Deploy as Container and Jacoco <a href="https://jenkins.io/doc/book/managing/plugins/">plugins in Jenkins</a><br>
-- <a href="https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html">Setup Bitbucket app passwords for Jenkins</a><br>
+- Installed Deploy as Container <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
+- Installed Jacoco <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
+- Installed SonarQube <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
 - Setup Tomcat credentials in Jenkins<br>
+- <a href="https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html">Setup Bitbucket app passwords for Jenkins</a><br>
+- Setup Bitbucket credentials in Jenkins<br>
 - Automated build jobs in Jenkins to Poll SCM every XX minutes<br>
+- Configured Global Security in Jenkins<br>
 - Setup triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate build on SCM push<br>
+- Setup webhooks in bitbucket<br>
+- Modified a webapp and pushed changes to SCM with git at the command line<br>
 </p>
 </body>
 </html>
 ctrl+x
 y
-git add index.jsp
+git add .
 git commit -m "modified index.jsp to reflect current skill level"
 git push
-curl $SERVER_IP:8090/$$PROJECTNAME/
-
-https://Bitbucket.org
-- $PROJECTNAME
-- Menu
-  - Settings
-    - Workflow
-      - Webhooks
-        - JenkinsWebhook - View requests
-          - repo:push - View details
-            - Body
-              - Show request body
-  - $PROJECTNAME
-    - $PROJECTNAME
-      - src/main/webapp/index.jsp
-
-http://$JENKINS_URL:$JENKINS_PORT
-- build_on_scm_push
-  - click on build number
-    - Changes
-  - Console Output
+curl $SERVER_IP:8090/$PROJECTNAME/

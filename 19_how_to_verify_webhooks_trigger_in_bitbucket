@@ -1,0 +1,13 @@
+https://Bitbucket.org
+- $PROJECTNAME
+- Menu
+  - Settings
+    - Workflow
+      - Webhooks
+        - JenkinsWebhook - View requests
+          - repo:push - View details
+            - Body
+              - Show request body
+  - $PROJECTNAME
+    - $PROJECTNAME
+      - src/main/webapp/index.jsp
