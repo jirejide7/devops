@@ -7,11 +7,11 @@ apt update
 apt install -y jenkins
 curl localhost:8080
 cat /var/lib/jenkins/secrets/initialAdminPassword
-# copy password
 exit
 
 # On Browser
-open http://$SERVER_IPADDRESS:$PORT
+open http://$EC2_IPADDRESS:$PORT
+paste contents of cat /var/lib/jenkins/secrets/initialAdminPassword
 install suggested plugins
 Create First Admin User
 Save and Continue
