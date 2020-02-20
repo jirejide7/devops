@@ -9,12 +9,6 @@ copy entire key
 
 # In Browser
 login at http://www.bitbucket.org
-Create Repository
-$PROJECTNAME
-This is a private repository
-Include a README? yes with a template
-Version Control System > Git
-Create Repository
 Click on $USERNAME
 Menu
 - Security
@@ -27,4 +21,9 @@ Menu
           - Add Key
 
 Click on $USERNAME
-Click on $PROJECTNAME
+Create Repository
+- $PROJECTNAME
+- This is a private repository
+- Include a README? yes with a template
+- Version Control System > Git
+- Create Repository
