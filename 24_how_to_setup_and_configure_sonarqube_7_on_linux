@@ -20,7 +20,7 @@ RUN_AS_USER=$SONARQUBE_USERNAME
 ctrl+x
 y
 
-su $SONAR_USERNAME
+su $SONARQUBE_USERNAME
 cd /opt/sonarqube/bin/linux-x86-64/
 ./sonar.sh start
 ./sonar.sh status
