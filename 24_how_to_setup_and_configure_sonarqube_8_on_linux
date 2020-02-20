@@ -6,16 +6,16 @@ unzip $SONARQUBE.zip -d /opt
 mv /opt/$SONARQUBE /opt/sonarqube -v
 
 groupadd $SONARQUBE_GROUP
-useradd --comment "Sonar System user" --home-dir /opt/sonarqube -g $SONARQUBE_GROUP $SONAR_USER
+useradd --comment "Sonar System user" --home-dir /opt/sonarqube -g $SONARQUBE_GROUP $SONAR_USERNAME
 mkdir -p /var/sonarqube/data /var/sonarqube/temp
-chown -R $SONARQUBE_USER:$SONARQUBE_GROUP /opt/sonarqube/data
-chown -R $SONARQUBE_USER:$SONARQUBE_GROUP /opt/sonarqube/extensions
-chown -R $SONARQUBE_USER:$SONARQUBE_GROUP /var/sonarqube/data
-chown -R $SONARQUBE_USER:$SONARQUBE_GROUP /var/sonarqube/temp
+chown -R $SONARQUBE_USERNAME:$SONARQUBE_GROUP /opt/sonarqube/data
+chown -R $SONARQUBE_USERNAME:$SONARQUBE_GROUP /opt/sonarqube/extensions
+chown -R $SONARQUBE_USERNAME:$SONARQUBE_GROUP /var/sonarqube/data
+chown -R $SONARQUBE_USERNAME:$SONARQUBE_GROUP /var/sonarqube/temp
 
 nano opt/sonarcube/conf/sonar.properties
-sonar.jdbc.username=$SONARQUBE_USER
-sonar.jdbc.password=$SONARQUBE_PASSWORD
+sonar.jdbc.username=$POSTGRESQL_USERNAME
+sonar.jdbc.password=$POSTRGESQL_PASSWORD
 sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube_database
 
 sonar.path.data=/var/sonarqube/data
