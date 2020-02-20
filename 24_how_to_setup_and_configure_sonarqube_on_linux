@@ -1,5 +1,6 @@
+cd ~
 sudo su
-SONARQUBE=sonarqube-7.9.1 # the version number will change over time
+SONARQUBE=sonarqube-7.9.1
 wget https://binaries.sonarsource.com/Distribution/sonarqube/$SONARQUBE.zip
 apt install -y unzip
 unzip $SONARQUBE.zip -d /opt
@@ -9,7 +10,7 @@ groupadd $SONARQUBE_GROUP
 useradd --comment "Sonar System user" --home-dir /opt/sonarqube --groups $SONARQUBE_GROUP $SONARQUBE_USERNAME
 chown -R $SONARQUBE_USERNAME:$SONARQUBE_GROUP /opt/sonarqube
 
-nano /opt/sonarcube/conf/sonar.properties
+nano /opt/sonarqube/conf/sonar.properties
 sonar.jdbc.username=$POSTGRESQL_USERNAME
 sonar.jdbc.password=$POSTGRESQL_PASSWORD
 ctrl+x
