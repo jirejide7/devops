@@ -1,28 +1,22 @@
-JENKINS_PORT=8080
-TOMCAT_PORT=8090
-SONARQUBE_PORT=9000
-
 # How to provision an EC2 instance at amazonaws.com
 AWS Console
 - EC2
   - Launch Instance
     - Choose Amazon Machine Image
-      - Ubuntu
-        - t2.medium, 4GB Memory
+      - Red Hat Enterprise Linux 8 (HVM)
+        - t2.small, 2GB Memory
         - Next: Configure Instances
         - Next: Add Storage
         - Next: Add tags
-         - Add Tag - Key: Name Value: Ubuntu EC2 Instance
+         - Add Tag - Key: Name Value: RHEL EC2 Instance
         - Next: Configure Security Group
           - Assign a Security Group
             - Create a new security group
-              - Security group name: UbuntuSecurityGroup
-              - Description: Ubuntu Security Group
+              - Security group name: RedHatSecurityGroup
+              - Description: Red Hat Security Group
 
         - Port Range 22 > Source > My IP
-        - Add Rule > Port Range > $JENKINS_PORT
-        - Add Rule > Port Range > $TOMCAT_PORT
-        - Add Rule > Port Range > $SONARQUBE_PORT > Source > Anywhere
+        - Add Rule > Port Range > 8081
   - Review and Launch
   - Launch
     - Create a new key pair
@@ -32,5 +26,5 @@ AWS Console
 
 # at command line
 chmod 400 $KEY_PAIR_NAME.pem
-ssh -i $KEY_PAIR_NAME.pem ubuntu@$DNSNAME.compute.amazonaws.com
-sudo apt update
+ssh -i $KEY_PAIR_NAME.pem ec2-user@$EC2_INSTANCE_PUBLIC_IP
+sudo yum -y update
