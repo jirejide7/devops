@@ -1,0 +1,17 @@
+# On browser
+http://$EC2_INSTANCE_IP:$SONARQUBE_PORT/
+- Login
+  - Login > admin
+  - Pasword > admin
+    - Login
+ 
+Administration
+- Security
+  - Users
+    - Administrator
+      - Tokens
+        - Update Token
+          - Generate Tokens
+            - Enter Token Name - $SONARQUBE_TOKEN
+            - Generate
+              - Copy
