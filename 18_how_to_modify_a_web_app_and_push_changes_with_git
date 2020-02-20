@@ -1,10 +1,12 @@
 # at Terminal
-nano ~/$PROJECTNAME/$PROJECTNAME/src/main/webapp/index.jsp
+curl localhost:8090/$MYNAME/
+
+nano ~/$PROJECTNAME/$MYNAME/src/main/webapp/index.jsp
 <html>
 <head><title>$FIRST_NAME $LAST_NAME</title></head>
 <body>
 <h2>DevOps Engineer</h2>
-<p>XXX-XXX-XXXX <a href="mailto:$USERNAME@g$DOMAIN">$USERNAME@$DOMAIN</a></p>
+<p>XXX-XXX-XXXX <a href="mailto:$USERNAME@$DOMAIN">$USERNAME@$DOMAIN</a></p>
 <p>Welcome! My name is $FIRSTNAME $LASTNAME and below is a list of things I have accomplished so far</p>
 <p>
 - Setup <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
@@ -31,7 +33,10 @@ nano ~/$PROJECTNAME/$PROJECTNAME/src/main/webapp/index.jsp
 </html>
 ctrl+x
 y
+
+git status
 git add .
 git commit -m "modified index.jsp to reflect current skill level"
 git push
-curl $SERVER_IP:8090/$PROJECTNAME/
+
+curl localhost:8090/$MYNAME/
