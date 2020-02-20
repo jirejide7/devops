@@ -1,6 +1,6 @@
 # at Terminal
 curl localhost:8090/$MYNAME/
-
+cd ~/projectname
 nano ~/$PROJECTNAME/$MYNAME/src/main/webapp/index.jsp
 <!DOCTYPE html>
 <html>
@@ -29,7 +29,17 @@ nano ~/$PROJECTNAME/$MYNAME/src/main/webapp/index.jsp
 - Configured Global Security in Jenkins<br>
 - Setup triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate build on SCM push<br>
 - Setup webhooks in bitbucket<br>
-- Modified a webapp and pushed changes to SCM with git at the command line<br>
+- Modified <a href="https://en.wikipedia.org/wiki/Web_application">webapps</a> and pushed changes to SCM with git<br>
+- verified git push trigger in bitbucket<br>
+- verified git push trigger in jenkins<br>
+- installed <a href="https://en.wikipedia.org/wiki/PostgreSQL">postgresql</a> in linux<br>
+- setup postgresql for <a href="https://en.wikipedia.org/wiki/SonarQube">SonarQube</a><br>
+- setup and configured SonarQube in linux<br>
+- setup SonarQube as a <a href="https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts/">service in linux</a><br>
+- setup SonarQube token<br>
+- setup SonarQube credentials in jenkins<br>
+- setup a code analysis build in jenkins<br>
+- modified webapp based on SonarQube suggestions<br>
 </p>
 </body>
 </html>
