@@ -1,0 +1,13 @@
+sudo su
+yum install -y java-1.8.0-openjdk.x86_64
+java -version
+
+yum install -y wget
+NEXUS=nexus-3.19.0-01
+ls
+wget http://download.sonatype.com/nexus/3/$NEXUS-unix.tar.gz
+ls
+tar -xvf $NEXUS-unix.tar.gz --directory /opt
+ls /opt
+mv /opt/$NEXUS /opt/nexus
+ls /opt
