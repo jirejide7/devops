@@ -1,0 +1,12 @@
+# In browser
+http://$JENKINS_URL:$JENKINS_PORT
+login
+- Username > $JENKINS_USERNAME
+- Password > $JENKINS_PASSWORD
+
+Jenkins
+- Manage Jenkins
+  - Manage Plugins
+    - Available
+      - Filter > Nexus Artifact Uploader
+    - Install without restart
