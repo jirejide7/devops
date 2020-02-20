@@ -6,7 +6,7 @@ unzip $SONARQUBE.zip -d /opt
 mv /opt/$SONARQUBE /opt/sonarqube -v
 
 groupadd $SONARQUBE_GROUP
-useradd --comment "Sonar System user" --home-dir /opt/sonarqube --groups- $SONARQUBE_GROUP $SONAR_USER
+useradd --comment "Sonar System user" --home-dir /opt/sonarqube --groups $SONARQUBE_GROUP $SONAR_USER
 chown -R $SONAR_USER:$SONARQUBE_GROUP /opt/sonarqube
 
 nano /opt/sonarcube/conf/sonar.properties
