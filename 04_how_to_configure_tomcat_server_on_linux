@@ -6,7 +6,7 @@ apt update
 apt install -y tomcat$X tomcat$X-docs tomcat$X-examples tomcat$X-admin
 java -version
 cp -r /usr/share/tomcat$X-admin/* /var/lib/tomcat$X/webapps/ -v
-nano /var/lib/tomcatX/conf/server.xml
+nano /var/lib/tomcat$X/conf/server.xml
 <Connector port="$TOMCAT_PORT" protocol="HTTP/1.1">
 ctrl+x
 y
@@ -16,7 +16,7 @@ nano /var/lib/tomcat$X/conf/tomcat-users.xml
 <role rolename="manager-gui"/>
 <role rolename="manager-script"/>
 <user username="$USERNAME" password="$PASSWORD" roles="manager-gui"/>
-<user username="MANAGER_SCRIPT_USERNAME" password="$MANAGER_SCRIPT_PASSWORD" roles="manager-script"/>
+<user username="$MANAGER_SCRIPT_USERNAME" password="$MANAGER_SCRIPT_PASSWORD" roles="manager-script"/>
 ctrl+x
 y
 
@@ -38,6 +38,7 @@ ctrl+x
 y
 
 systemctl status tomcat$X
+q
 systemctl restart tomcat$X
 systemctl status tomcat$X
 q
