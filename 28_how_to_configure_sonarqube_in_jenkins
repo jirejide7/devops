@@ -7,6 +7,6 @@ Jenkins
       - SonarQube installations
         - Add SonarQube
           - Name > SonarQube
-          - Server URL > http://localhost:$SONARQUBE_PORT
+          - Server URL > http://$EC2_INSTANCE_IP:$SONARQUBE_PORT
           - Server authentication token > Sonarqube Key
 Save
