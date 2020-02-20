@@ -1,0 +1,12 @@
+http://$EC2_INSTANCE_IP:$JENKINS_PORT
+Jenkins
+- Manage Jenkins
+  - Configure System
+    - SonarQube servers
+      - Environment variables - Enable injection of SonarQube server configuration as build environment variables
+      - SonarQube installations
+        - Add SonarQube
+          - Name > SonarQube
+          - Server URL > http://localhost:$SONARQUBE_PORT
+          - Server authentication token > Sonarqube Key
+Save

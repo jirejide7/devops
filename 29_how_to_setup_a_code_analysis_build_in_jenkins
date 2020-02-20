@@ -1,6 +1,6 @@
 http://$EC2_INSTANCE_IP:$JENKINS_PORT
 - New Item
-  - Enter an Item name > build_on_scm_push
+  - Enter an Item name > sonarqube_code_analysis_build
   - Freestyle Project > OK
     - Source Code Management > Git
     - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
@@ -8,9 +8,12 @@ http://$EC2_INSTANCE_IP:$JENKINS_PORT
     - Build Triggers
       - Trigger builds remotely (e.g., from scripts)
         - Authentication Token - $PROJECT_TOKEN
+    - Build Environment
+      - Prepare SonarQube Scanner environment
+        - Server authentication token > Sonarqube Key
     - Build > Add Build step > invoke top level maven targets
         - Maven Version > Maven3
-        - Goals - clean install
+        - Goals - clean install sonar:sonar
         - Advanced
           - POM > $MYNAME/pom.xml
     Post Build Actions
