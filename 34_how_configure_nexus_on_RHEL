@@ -1,0 +1,17 @@
+adduser $NEXUS_USERNAME
+chown -R $NEXUS_USERNAME:$NEXUS_USERNAME /opt/nexus
+chown -R $NEXUS_USERNAME /opt/sonatype-work
+
+vi /opt/nexus/bin/nexus.rc
+o
+run_as_user="$NEXUS_USERNAME"
+Esc
+:wq!
+
+vi /opt/nexus/bin/nexus.vmoptions
+i
+-Xms512m
+-Xmx512m
+-XX:MaxDirectMemorySize=512m
+Esc
+:wq!
