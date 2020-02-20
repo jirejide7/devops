@@ -12,7 +12,7 @@ http://$JENKINS_URL:$JENKINS_PORT
         - Maven Version > Maven3
         - Goals - clean install
         - Advanced
-          - POM > $$PROJECTNAME/pom.xml
+          - POM > $MYNAME/pom.xml
     Post Build Actions
     - Add post-build action
         - Archive the artifacts > Files to archive > **/*.war
