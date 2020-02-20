@@ -1,6 +1,6 @@
 # how to trigger a build with Poll SCM
 # in browser
-http://$EC2_INSTANCE_IP:$TOMCAT_PORT/$PROJECTNAME/
+http://$EC2_INSTANCE_IP:$TOMCAT_PORT/$MYNAME/
 http://$JENKINS_URL:$JENKINS_PORT
 Jenkins
 - New Item
@@ -15,7 +15,7 @@ Jenkins
       - Maven Version > Maven3
       - Goals - clean install
       - Advanced
-          - POM > $PROJECTNAME/pom.xml
+          - POM > $MYNAME/pom.xml
     - Post Build Actions
       - Add post-build action
         - Archive the artifacts > Files to archive > **/*.war
