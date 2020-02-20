@@ -6,9 +6,10 @@ git clone git@bitbucket.org:$USERNAME/$PROJECTNAME.git
 ls
 cd projectname
 ls
+cat README.md
 
 # Build a sample web app
-mvn archetype:generate -DgroupId=com.mkyong -DartififactId=$PROJECTNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+mvn archetype:generate -DgroupId=com.mkyong -DartififactId=$MYNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ls
 
 git status
@@ -16,7 +17,7 @@ git add .
 git commit -m "1st commit - Created webapp template and uploaded to SCM"
 git push
 
-curl localhost:$TOMCAT_PORT/$PROJECTNAME
+curl localhost:$TOMCAT_PORT/$MYNAME/
 
 # In browser
 $SERVER_IP:$TOMCAT_PORT/$PROJECTNAME/
