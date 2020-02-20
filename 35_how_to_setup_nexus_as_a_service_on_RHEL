@@ -10,7 +10,6 @@ Type=forking
 LimitNOFILE=65536
 
 User=$NEXUS_USERNAME
-Group=$NEXUS_USERNAME
 
 ExecStart=/opt/nexus/bin/nexus start
 ExecStop=/opt/nexus/bin/nexus stop
