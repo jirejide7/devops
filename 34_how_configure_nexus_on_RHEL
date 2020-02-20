@@ -7,6 +7,7 @@ o
 run_as_user="$NEXUS_USERNAME"
 Esc
 :wq!
+cat /opt/nexus/bin/nexus.rc
 
 vi /opt/nexus/bin/nexus.vmoptions
 i
@@ -15,3 +16,4 @@ i
 -XX:MaxDirectMemorySize=512m
 Esc
 :wq!
+cat /opt/nexus/bin/nexus.vmoptions
