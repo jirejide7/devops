@@ -2,6 +2,7 @@ X=9
 TOMCAT_PORT=8090
 
 sudo su
+apt update
 apt install -y tomcat$X tomcat$X-docs tomcat$X-examples tomcat$X-admin
 java -version
 cp -r /usr/share/tomcat$X-admin/* /var/lib/tomcat$X/webapps/ -v
