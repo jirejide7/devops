@@ -16,7 +16,7 @@ chown -R $SONARQUBE_USERNAME:$SONARQUBE_GROUP /var/sonarqube/temp
 nano opt/sonarcube/conf/sonar.properties
 sonar.jdbc.username=$POSTGRESQL_USERNAME
 sonar.jdbc.password=$POSTRGESQL_PASSWORD
-sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube_database
+sonar.jdbc.url=jdbc:postgresql://localhost/$SONARQUBE_DATABASE
 
 sonar.path.data=/var/sonarqube/data
 sonar.path.temp=/var/sonarqube/temp
