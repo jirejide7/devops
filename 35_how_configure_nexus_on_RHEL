@@ -1,3 +1,4 @@
+sudo su
 adduser $NEXUS_USERNAME
 chown -R $NEXUS_USERNAME:$NEXUS_USERNAME /opt/nexus
 chown -R $NEXUS_USERNAME /opt/sonatype-work
@@ -17,3 +18,4 @@ i
 Esc
 :wq!
 cat /opt/nexus/bin/nexus.vmoptions
+exit
