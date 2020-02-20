@@ -20,8 +20,7 @@ http://$UBUNTU_INSTANCE_IP:$JENKINS_PORT
           - POM > $MYNAME/pom.xml
       - Add Build step > Nexus artifact uploader
         - Nexus Details
-          - Nexus Version > NEXUS3
-          - Nexus URL > $RHEL_INSTANCE_IP:$NEXUS_PORT
+          - Nexus URL > $RHEL_INSTANCE_IP:8081
           - Credentials > admin/****** (Nexus Key)
           - GroupId > values of <groupId> from ~/$PROJECTNAME/$MYNAME/pom.xml
           - Version > values of <version> from ~/$PROJECTNAME/$MYNAME/pom.xml

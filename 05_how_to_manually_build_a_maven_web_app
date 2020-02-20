@@ -9,7 +9,7 @@ ls
 cat README.md
 
 # Build a sample web app
-mvn archetype:generate -DgroupId=com.$GROUP_NAME -DartififactId=$MYNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+mvn archetype:generate -DgroupId=com.mkyong -DartififactId=$MYNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ls
 
 git status
