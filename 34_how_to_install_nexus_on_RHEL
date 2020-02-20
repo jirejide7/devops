@@ -1,6 +1,6 @@
 sudo su
 yum install -y wget
-NEXUS=nexus-3.19.0-01
+NEXUS=nexus-3.21.1-01
 ls
 wget http://download.sonatype.com/nexus/3/$NEXUS-unix.tar.gz
 ls

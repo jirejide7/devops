@@ -1,5 +1,5 @@
 sudo su
-curl localhost:900
+curl localhost:9000
 bash /opt/sonarqube/bin/linux-x86-64/sonar.sh stop
 curl localhost:9000
 

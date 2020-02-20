@@ -10,7 +10,7 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 exit
 
 # On Browser
-open http://$EC2_IPADDRESS:$PORT
+open http://$UBUNTU_EC2_PUBLIC_IP:$PORT
 paste contents of cat /var/lib/jenkins/secrets/initialAdminPassword
 install suggested plugins
 Create First Admin User

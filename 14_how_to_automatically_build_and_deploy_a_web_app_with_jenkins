@@ -1,7 +1,7 @@
 # how to trigger a build with Poll SCM
 # in browser
-http://$EC2_INSTANCE_IP:$TOMCAT_PORT/$MYNAME/
-http://$JENKINS_URL:$JENKINS_PORT
+http://$UBUNTU_EC2_PUBLIC_IP:$TOMCAT_PORT/$MYNAME/
+http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
 Jenkins
 - New Item
     - Enter an Item name > poll_scm_build
@@ -31,4 +31,4 @@ Jenkins
     Save
 - Build Now
 
-http://$EC2_INSTANCE_IP:$TOMCAT_PORT/$MYNAME/
+http://$UBUNTU_EC2_PUBLIC_IP:$TOMCAT_PORT/$MYNAME/

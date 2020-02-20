@@ -1,5 +1,5 @@
 # On browser
-http://$EC2_INSTANCE_IP:$SONARQUBE_PORT/
+http://$UBUNTU_EC2_PUBLIC_IP:$SONARQUBE_PORT/
 - Login
   - Login > admin
   - Pasword > admin

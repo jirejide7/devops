@@ -26,6 +26,6 @@ AWS Console
 
 # at command line
 chmod 400 $KEY_PAIR_NAME.pem
-ssh -i $KEY_PAIR_NAME.pem ec2-user@$EC2_INSTANCE_PUBLIC_IP
+ssh -i $KEY_PAIR_NAME.pem ec2-user@$RHEL_EC2_PUBLIC_IP
 yes
 sudo yum -y update

@@ -37,16 +37,3 @@ curl localhost:8081
 
 cat /opt/sonatype-work/nexus3/admin.password
 exit
-# in browser
-https://$EC2_INSTANCE_PUBLIC_IP:8081
-Sign in 
-- Username > admin
-- password > paste contents of /opt/sonatype-work/nexu3/admin.password
-Setup
-- This wizard will help you complete required steps
-  - Next
-- New password > $PASSWORD
-- Confirm password > $PASSWORD
-- Allow anonymous users 
-  - Next
-- Finish

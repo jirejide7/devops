@@ -7,7 +7,7 @@ AWS Console
 - EC2
   - Launch Instance
     - Choose Amazon Machine Image
-      - Ubuntu
+      - Ubuntu Server XX.XX LTS(HVM)
         - t2.medium, 4GB Memory
         - Next: Configure Instances
         - Next: Add Storage
@@ -32,6 +32,6 @@ AWS Console
 
 # at command line
 chmod 400 $KEY_PAIR_NAME.pem
-ssh -i $KEY_PAIR_NAME.pem ubuntu@$EC2_INSTANCE_PUBLIC_IP
+ssh -i $KEY_PAIR_NAME.pem ubuntu@$$UBUNTU_EC2_PUBLIC_IP
 yes
 sudo apt update

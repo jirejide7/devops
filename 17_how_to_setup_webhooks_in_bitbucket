@@ -1,3 +1,4 @@
+# in browser
 https://Bitbucket.org
 $USERNAME
 - $PROJECTNAME
@@ -7,7 +8,7 @@ $USERNAME
       - Webhooks
         - Add Webhook
           - Title - JenkinsWebhook
-          - URL > $JENKINS_URL/job/build_on_scm_push/build?token=$PROJECT_TOKEN
+          - URL > http://$UBUNTU_EC2_PUBLIC_IP/job/build_on_scm_push/build?token=$PROJECT_TOKEN
           - Status - Active 
           - SSL / TLS - skip certificate verification
           - Request History - Enable request history collection
