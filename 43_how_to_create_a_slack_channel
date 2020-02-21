@@ -1,9 +1,0 @@
-# in browser
-https://www.slack.com
-Signin or Create an Account
-Add a Channel
-- Create Channel
-  - Name > $SLACK_CHANNEL
-  - Description > CI/CD builds
-  - Add people > $NAME_0, $NAME_1, $NAME_2, $NAME_N
-Done

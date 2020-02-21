@@ -1,6 +1,6 @@
 # in browser
 http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
-- build_on_scm_push
+- git_push_build
   - click on build number
     - Changes
   - Console Output

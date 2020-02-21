@@ -1,3 +1,6 @@
+# In browser
+http://$UBUNTU_EC2_PUBLIC_IP:$TOMCAT_PORT/$MYNAME/
+
 # at Terminal
 curl localhost:8090/$MYNAME/
 cd ~/$PROJECTNAME
@@ -41,3 +44,6 @@ git commit -m "modified index.jsp to reflect current skill level up to triggerin
 git push
 
 curl localhost:$TOMCAT_PORT/$MYNAME/
+
+# In browser
+http://$UBUNTU_EC2_PUBLIC_IP:$TOMCAT_PORT/$MYNAME/

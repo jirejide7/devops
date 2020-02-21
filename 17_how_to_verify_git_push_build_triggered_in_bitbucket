@@ -5,7 +5,7 @@ https://Bitbucket.org
   - Settings
     - Workflow
       - Webhooks
-        - JenkinsWebhook - View requests
+        - git_push_build - View requests
           - repo:push - View details
             - Body
               - Show request body
