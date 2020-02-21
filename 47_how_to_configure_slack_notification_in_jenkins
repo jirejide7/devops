@@ -16,7 +16,7 @@ Jenkins
           - ID > slack_key
           - Description > Slack Key
         - Add
-        - Slack Key
+        - select Slack Key
         - Default channel / member id > $SLACK_CHANNEL
       Test Connection
 Save  
