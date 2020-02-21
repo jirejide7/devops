@@ -1,0 +1,17 @@
+# in browser
+https://Bitbucket.org
+$USERNAME
+- $PROJECTNAME
+- Menu
+  - Settings
+    - Workflow
+      - Webhooks
+        - Add Webhook
+          - Title - JenkinsSlackNotificationWebhook
+          - URL > http://$UBUNTU_EC2_PUBLIC_IP/job/notify_slack_on_build/build?token=$PROJECT_TOKEN
+          - Status - Active 
+          - SSL / TLS - skip certificate verification
+          - Request History - Enable request history collection
+          - Repository Push
+          - Save
+        - View Requests
