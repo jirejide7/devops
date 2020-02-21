@@ -1,6 +1,6 @@
 http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
 - New Item
-  - Enter an Item name > build_on_scm_push
+  - Enter an Item name > build_on_git_push
   - Freestyle Project > OK
     - Source Code Management > Git
     - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
