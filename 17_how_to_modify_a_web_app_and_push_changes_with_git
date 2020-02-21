@@ -28,6 +28,7 @@ nano $MYNAME/src/main/webapp/index.jsp
 - I have setup Build Triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate builds on git push<br>
 - I have setup webhooks in bitbucket<br>
 - I have modified webapps and pushed changes to SCM with git<br>
+- Look out for more to come as I continue<br>
 </p>
 </body>
 </html>
