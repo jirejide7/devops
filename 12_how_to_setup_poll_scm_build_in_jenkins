@@ -1,6 +1,7 @@
-# how to trigger a build with Poll SCM
+# how to trigger a build by Polling Source Code Management
 # in browser
 http://$UBUNTU_EC2_PUBLIC_IP:$TOMCAT_PORT/$MYNAME/
+
 http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
 Jenkins
 - New Item
