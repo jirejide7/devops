@@ -1,0 +1,6 @@
+# In browser
+http://$UBUNTU_EC2_PUBLIC_IP:$SONARQUBE_PORT
+click on $MYNAME Maven Webapp
+Duplications - XX New Lines
+- click XX
+- click src/main/webapp/index.jsp
