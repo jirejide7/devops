@@ -29,16 +29,6 @@ systemctl status nexus
 systemctl start nexus
 systemctl status nexus
 
-service nexus status
-
-ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
-chkconfig --add nexus
-chkconfig --levels 345 nexus on
-
-service nexus status
-service nexus start
-service nexus status
-
 tail -f /opt/sonatype-work/nexus3/log/nexus.log
 ctrl+c
 cat /opt/sonatype-work/nexus3/log/nexus.log
