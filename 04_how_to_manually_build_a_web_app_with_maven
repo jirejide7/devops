@@ -3,18 +3,39 @@ mvn --version
 
 ls
 git clone git@bitbucket.org:$USERNAME/$PROJECTNAME.git
+yes
 ls
 cd projectname
 ls
 cat README.md
+clear
 
 # Build a sample web app
-mvn archetype:generate -DgroupId=com.$GROUP_NAME -DartififactId=$MYNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+mvn archetype:generate -DgroupId=com.$MY_NAME -DartififactId=$MYNAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ls
+cd $MYNAME
+ls
+cat pom.xml
+ls
+cd src
+ls
+main
+ls
+cd resources
+ls
+cd ..
+cd webapp
+ls
+cd WEB-INF
+ls
+cat web.xml
+cd ..
+cat index.jsp
+cd ~/projectname
 
 git status
 git add .
-git commit -m "1st commit - Created webapp template and uploaded to SCM"
+git commit -m "1st commit - Created webapp template and uploaded to Bitbucket"
 git push
 
 curl localhost:$TOMCAT_PORT/$MYNAME/
