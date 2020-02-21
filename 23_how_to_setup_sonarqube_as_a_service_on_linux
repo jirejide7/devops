@@ -3,7 +3,7 @@ curl localhost:9000
 bash /opt/sonarqube/bin/linux-x86-64/sonar.sh stop
 curl localhost:9000
 
-nano /etc/systemd/system/sonarqube.service
+nano /etc/systemd/sonarqube.service
 [Unit]
 Description=SonarQube service
 After=syslog.target network.target
@@ -27,6 +27,9 @@ y
 Enter
 
 systemctl status sonarqube
+mv /etc/systemd/sonarqube.service /etc/systemd/system/sonarqube.service
+systemctl status sonarqube
+
 systemctl enable sonarqube
 systemctl status sonarqube
 
