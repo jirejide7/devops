@@ -9,8 +9,8 @@ Jenkins
       - Source Code Management > Git
         - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
         - Credentials > select $GIT_USERNAME/******(Bitbucket Key)
-    - Build Triggers > Poll SCM > H/XX * * * *
-      # XX equal minutes, where 02 means Poll SCM for changes every 2 minutes
+    - Build Triggers > Poll SCM > H/$MINUTE $HOUR_OF_DAY $DAY_OF_MONTH $MONTH $DAY_OF_WEEK
+      # XX equal minutes, where H/2 * * * * means Poll SCM for changes every 2 minutes
     - Build > Add Build step > invoke top level maven targets
       - Maven Version > Maven3
       - Goals - clean install
