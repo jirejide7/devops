@@ -41,3 +41,4 @@ chmod 400 $KEY_PAIR_NAME.pem
 ssh -i $KEY_PAIR_NAME.pem ubuntu@$UBUNTU_EC2_PUBLIC_IP
 yes
 sudo apt update
+sudo apt -y full-upgrade
