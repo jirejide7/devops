@@ -1,5 +1,6 @@
 # at Terminal
 curl localhost:8090/$MYNAME/
+
 cd ~/projectname
 nano $MYNAME/src/main/webapp/index.jsp
 
@@ -65,7 +66,7 @@ y
 
 git status
 git add .
-git commit -m "modified index.jsp to reflect current skill level up to making code changes based on SonarQube Analysis"
+git commit -m "modified index.jsp to reflect current skill level up to pushing completed code build artifacts to nexus repository"
 git push
 
 curl localhost:8090/$MYNAME/
