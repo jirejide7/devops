@@ -1,7 +1,7 @@
 # in browser
 http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
 - New Item
-  - Enter an Item name > sonarqube_code_analysis_build
+  - Enter an Item name > code_analysis_build
   - Freestyle Project > OK
     - Source Code Management > Git
     - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
@@ -30,4 +30,3 @@ http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
                         - select $TOMCAT_USERNAME/******($TOMCAT_CREDENTIALS)
                     - Tomcat URL > http://localhost:$TOMCAT_PORT
     Save
- Build Now
