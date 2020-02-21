@@ -1,6 +1,6 @@
 # In browser
 # the following steps will make your jenkins server less secure
-# they are necessary for the next steps
+# but are necessary for the webhooks to work
 http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
 - Manage Jenkins
   - Configure Global Security
