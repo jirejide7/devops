@@ -1,0 +1,10 @@
+# in browser
+https://www.slack.com
+Signin or Create an Account
+Channels > (+) # create a channel
+- Create a Channel
+  - Name > $SLACK_CHANNEL
+  - Description > $SLACK_CHANNEL_DESCRIPTION
+  - Create
+  - Add people > $NAME_0, $NAME_1, $NAME_2, $NAME_N
+Done

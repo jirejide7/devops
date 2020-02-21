@@ -1,0 +1,12 @@
+# In browser
+http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
+login
+- Username > $JENKINS_USERNAME
+- Password > $JENKINS_PASSWORD
+
+Jenkins
+- Manage Jenkins
+  - Manage Plugins
+    - Available
+      - Filter > Slack Notification
+    - Install Without Restart
