@@ -15,7 +15,6 @@ ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
 ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
 
 User=$SONARQUBE_USERNAME
-Group=$SONARQUBE_GROUP
 Restart=always
 
 LimitNOFILE=65536
@@ -25,14 +24,15 @@ LimitNPROC=4096
 WantedBy=multi-user.target
 ctrl+x
 y
+Enter
 
 systemctl status sonarqube
-q
 systemctl enable sonarqube
 systemctl status sonarqube
-q
+
 systemctl start sonarqube
 systemctl status sonarqube
 q
+
 exit
 curl localhost:9000
