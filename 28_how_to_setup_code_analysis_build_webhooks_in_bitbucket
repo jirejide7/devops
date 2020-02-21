@@ -7,7 +7,7 @@ $USERNAME
     - Workflow
       - Webhooks
         - Add Webhook
-          - Title - jenkins_code_analysis_build
+          - Title - code_analysis_build
           - URL > http://$UBUNTU_EC2_PUBLIC_IP/job/code_analysis_build/build?token=$PROJECT_TOKEN
           - Status - Active 
           - SSL / TLS - skip certificate verification

@@ -1,3 +1,0 @@
-# In browser
-http://$UBUNTU_EC2_PUBLIC_IP:$SONARQUBE_PORT
-click on $MYNAME Maven Webapp
