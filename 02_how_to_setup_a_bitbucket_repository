@@ -1,4 +1,4 @@
-# Go to Terminal
+# Go to Ubuntu EC2 Terminal
 ssh-keygen
 Enter
 Enter
@@ -16,7 +16,7 @@ Menu
     - Security
       - SSH Keys
         - Add key
-          - Label - DevOpsEngineerSSHKey
+          - Label - $UBUNTU_SSH_KEY
           - Key - paste contents of ~/.ssh/id_rsa.pub
           - Add Key
 
