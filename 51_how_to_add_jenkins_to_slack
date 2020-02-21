@@ -10,3 +10,6 @@ Your workspaces > $WORKSPACE
             - Post to Channel
               - Choose a channel > $SLACK_CHANNEL
               - Add Jenkins CI integration
+
+Descriptive Label > CI/CD Builds Notification
+Save Settings

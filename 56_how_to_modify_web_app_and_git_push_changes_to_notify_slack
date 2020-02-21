@@ -76,7 +76,7 @@ y
 
 git status
 git add .
-git commit -m "modified index.jsp to reflect current skill level up to configuring Jenkins to notifying a slack channel on Build activities"
+git commit -m "modified index.jsp to reflect current skill level up to configuring Jenkins to notify a slack channel on Build activities"
 git push
 
 curl localhost:8090/$MYNAME/
