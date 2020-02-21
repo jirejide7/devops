@@ -6,12 +6,13 @@ echo deb http://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list
 apt update
 apt install -y jenkins
 curl localhost:8080
+clear
 cat /var/lib/jenkins/secrets/initialAdminPassword
 exit
 
 # On Browser
 open http://$UBUNTU_EC2_PUBLIC_IP:$PORT
-paste contents of cat /var/lib/jenkins/secrets/initialAdminPassword
+copy and paste contents of cat /var/lib/jenkins/secrets/initialAdminPassword
 install suggested plugins
 Create First Admin User
 Save and Continue
