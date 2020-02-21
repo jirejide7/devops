@@ -1,0 +1,13 @@
+# in browser
+http://$RHEL_EC2_PUBLIC_IP:$NEXUS_PORT
+Sign in
+- Username > admin
+- Password > paste contents of cat /opt/sonatype-work/nexus3/admin.password
+Sign in
+
+Setup
+- Next
+- New password > $NEXUS_PASSWORD
+- Confirm password > $NEXUS_PASSWORD > Next
+- Configure Anonymous Access > do not enable anonymous access > Next
+- Finish
