@@ -15,7 +15,7 @@ http://$UBUNTU_INSTANCE_IP:$JENKINS_PORT
     - Build
       - Add Build step > invoke top level maven targets
         - Maven Version > Maven3
-        - Goals - clean install sonar:sonar
+        - Goals - clean install
         - Advanced
           - POM > $MYNAME/pom.xml
       - Add Build step > Nexus artifact uploader
@@ -43,4 +43,11 @@ http://$UBUNTU_INSTANCE_IP:$JENKINS_PORT
               - Credentials
                 - select $TOMCAT_USERNAME/******($TOMCAT_CREDENTIALS)
               - Tomcat URL > http://localhost:$TOMCAT_PORT
+    - Add post-build action
+      - Slack Notifications
+        - Notify Build Start
+        - Notify Success
+        - Notify Regression
+        - Notify Every Failure
+        
     Save
