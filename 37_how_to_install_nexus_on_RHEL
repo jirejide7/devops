@@ -4,6 +4,7 @@ NEXUS=nexus-3.21.1-01
 ls
 wget http://download.sonatype.com/nexus/3/$NEXUS-unix.tar.gz
 ls
+ls /opt
 tar -xvf $NEXUS-unix.tar.gz --directory /opt
 ls /opt
 mv /opt/$NEXUS /opt/nexus
