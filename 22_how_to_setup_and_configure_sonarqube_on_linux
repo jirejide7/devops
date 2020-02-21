@@ -7,8 +7,8 @@ unzip $SONARQUBE.zip -d /opt
 mv /opt/$SONARQUBE /opt/sonarqube -v
 
 groupadd $SONARQUBE_GROUP
-useradd --comment "Sonar System user" --home-dir /opt/sonarqube --groups $SONARQUBE_GROUP $SONARQUBE_USERNAME
-chown -R $SONARQUBE_USERNAME:$SONARQUBE_GROUP /opt/sonarqube
+useradd --comment "SonarQube System user" --home-dir /opt/sonarqube --groups $SONARQUBE_GROUP $SONARQUBE_USERNAME
+chown -R $SONARQUBE_USERNAME /opt/sonarqube
 
 nano /opt/sonarqube/conf/sonar.properties
 sonar.jdbc.username=$POSTGRESQL_USERNAME
@@ -23,10 +23,20 @@ y
 
 su $SONARQUBE_USERNAME
 cd /opt/sonarqube/bin/linux-x86-64/
+ls /opt/sonarqube/logs
 ./sonar.sh start
 ./sonar.sh status
+
+ls /opt/sonarqube/logs
+cat README.txt
 cat /opt/sonarqube/logs/sonar.log
-tail /opt/sonarqube/logs/sonar.log
+cat /opt/sonarqube/logs/es.log
+cat /opt/sonarqube/logs/access.log
+cat /opt/sonarqube/logs/web.log
+
+tail -f /opt/sonarqube/logs/sonar.log
+ctrl+c
 exit
 exit
+
 curl localhost:9000
