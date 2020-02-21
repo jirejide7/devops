@@ -1,0 +1,5 @@
+# in browser
+http://$RHEL_INSTANCE_IP:8081
+Browse
+- Browse
+  - maven-snapshots
