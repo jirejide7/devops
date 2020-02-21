@@ -31,7 +31,7 @@ http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
           - Repository > maven-snapshots
           - Artifacts > Add
             - ArtifactId > $MYNAME
-            - Type > WAR
+            - Type > war
             - File > $MYNAME/target/$MYNAME.war
 
     Post Build Actions
@@ -48,9 +48,6 @@ http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
                     - Tomcat URL > http://localhost:$TOMCAT_PORT
     - Add post-build action
       - Slack Notifications
-        - Notify Build Start
-        - Notify Success
-        - Notify Regression
-        - Notify Every Failure
+        - Check all
 
     Save
