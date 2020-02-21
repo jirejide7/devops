@@ -8,7 +8,7 @@ AWS Console
         - Next: Configure Instances
         - Next: Add Storage
         - Next: Add tags
-         - Add Tag - Key: Name Value: RHEL EC2 Instance
+         - Add Tag - Key: name Value: rhel_ec2_instance
         - Next: Configure Security Group
           - Assign a Security Group
             - Create a new security group
@@ -23,7 +23,11 @@ AWS Console
     - Key pair name > $KEY_PAIR_NAME
   - Download Key Pair
   - Launch Instances
-
+    - View Instances
+      - Click on Pencil under Name > rhel > Enter
+  - Description
+    - IPv4 Public IP > copy this value
+  
 # at command line
 chmod 400 $KEY_PAIR_NAME.pem
 ssh -i $KEY_PAIR_NAME.pem ec2-user@$RHEL_EC2_PUBLIC_IP

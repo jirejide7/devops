@@ -31,8 +31,6 @@ AWS Console
   - Launch Instances
     - View Instances
       - Click on Pencil under Name > ubuntu > Enter
-    - Actions
-      - Connect
   - Description
     - IPv4 Public IP > copy this value      
 
