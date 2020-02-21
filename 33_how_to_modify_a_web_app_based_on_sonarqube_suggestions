@@ -1,0 +1,59 @@
+# at Terminal
+curl localhost:8090/$MYNAME/
+cd ~/projectname
+nano $MYNAME/src/main/webapp/index.jsp
+
+<!DOCTYPE html>
+<html>
+<head><title>$FIRST_NAME $LAST_NAME</title></head>
+<body>
+<h2>DevOps Engineer</h2>
+<p>XXX-XXX-XXXX <a href="mailto:$USERNAME@$DOMAIN">$USERNAME@$DOMAIN</a></p>
+<p>Welcome! My name is $FIRSTNAME $LASTNAME and below is a list of things I have accomplished so far on my journey to being a DevOps Engineer</p>
+<p>
+- I have setup <a href="https://en.wikipedia.org/wiki/Ubuntu">ubuntu</a> <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
+- I have setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket <a href="https://en.wikipedia.org/wiki/Repository_(version_control)">repositories</a><br>
+- I have installed <a href="https://www.java.com/en/">Java</a> on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a><br>
+- Configured <a href="http://tomcat.apache.org/">Tomcat</a> Servers on Linux<br>
+- I have installed <a href="https://en.wikipedia.org/wiki/Git">Git</a> on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a><br>
+- I have built <a href="https://en.wikipedia.org/wiki/Web_application">web apps</a> with <a href="https://maven.apache.org/">Maven</a><br>
+- I have installed <a href="https://jenkins.io/">Jenkins</a> on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a><br>
+- <a href="https://jenkins.io/solutions/java/">Configured Maven in Jenkins</a><br>
+- I have installed Deploy as Container <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
+- I have installed Jacoco <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
+- I have Setup Tomcat credentials in Jenkins<br>
+- <a href="https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html">Setup Bitbucket app passwords for Jenkins</a><br>
+- I have setup Bitbucket credentials in Jenkins<br>
+- Automated build jobs in Jenkins to Poll Source Code Management<br>
+- Configured Jenkins Global Security<br>
+- I have setup Build Triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate builds on git push<br>
+- I have setup webhooks in bitbucket<br>
+- I have modified webapps and pushed changes to SCM with git<br>
+- I have verified webhooks in Bitbucket by viewing their logs<br>
+- I have verified webhooks in Jenkins by viewing build job logs<br>
+- I have installed Postgresql on Linux<br>
+- I have configured Postgresql for SonarQube<br>
+- I have setup and configured SonarQube in Linux<br>
+- I have setup SonarQube as a service in Linux<br>
+- I have installed SonarQube <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
+- I have configured SonarQube credentials in Jenkins<br>
+- I have configured SonarQube in Jenkins<br>
+- I have setup Code Analysis Builds in Jenkins with SonarQube<br>
+- I have setup webhooks in Bitbucket for Code Analysis Builds<br>
+- I have modified web apps and pushed changes to SCM with git<br>
+- I verified in Bitbucket that git push triggered Code Analysis builds<br>
+- I verified in Jenkins that git push triggered Code Analysis builds<br>
+- I used SonarQube suggestions to improve web app code<br>
+- Keep checking back as I evolve into a DevOps Engineer<br>
+</p>
+</body>
+</html>
+ctrl+x
+y
+
+git status
+git add .
+git commit -m "modified index.jsp to reflect current skill level up to making code changes based on SonarQube Analysis"
+git push
+
+curl localhost:8090/$MYNAME/
