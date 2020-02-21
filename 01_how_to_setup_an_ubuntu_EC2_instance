@@ -16,8 +16,8 @@ AWS Console
         - Next: Configure Security Group
           - Assign a Security Group
             - Create a new security group
-              - Security group name: UbuntuSecurityGroup
-              - Description: Ubuntu Security Group
+              - Security group name: $UBUNTU_SECURITY_GROUP
+              - Description: $UBUNTU_SECURITY_GROUP_DESCRIPTION
 
         - Port Range 22 > Source > My IP
         - Add Rule > Port Range > $JENKINS_PORT
@@ -26,12 +26,18 @@ AWS Console
   - Review and Launch
   - Launch
     - Create a new key pair
-    - Key pair name > $KEY_PAIR_NAME
+    - Key pair name > $UBUNTU_KEY_PAIR_NAME
   - Download Key Pair
   - Launch Instances
+    - View Instances
+      - Click on Pencil under Name > ubuntu > Enter
+    - Actions
+      - Connect
+  - Description
+    - IPv4 Public IP > copy this value      
 
 # at command line
 chmod 400 $KEY_PAIR_NAME.pem
-ssh -i $KEY_PAIR_NAME.pem ubuntu@$$UBUNTU_EC2_PUBLIC_IP
+ssh -i $KEY_PAIR_NAME.pem ubuntu@$UBUNTU_EC2_PUBLIC_IP
 yes
 sudo apt update
