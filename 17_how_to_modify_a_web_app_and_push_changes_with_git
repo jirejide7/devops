@@ -11,11 +11,11 @@ nano $MYNAME/src/main/webapp/index.jsp
 <p>
 - I have setup <a href="https://en.wikipedia.org/wiki/Ubuntu">ubuntu</a> <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
 - I have setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket <a href="https://en.wikipedia.org/wiki/Repository_(version_control)">repositories</a><br>
-- I have installed <a href="https://www.java.com/en/">Java</a> on Linux<br>
+- I have installed <a href="https://www.java.com/en/">Java</a> on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a><br>
 - Configured <a href="http://tomcat.apache.org/">Tomcat</a> Servers on Linux<br>
 - I have installed <a href="https://en.wikipedia.org/wiki/Git">Git</a> on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a><br>
 - I have built <a href="https://en.wikipedia.org/wiki/Web_application">web apps</a> with <a href="https://maven.apache.org/">Maven</a><br>
-- I have installed <a href="https://jenkins.io/">Jenkins</a> on Linux<br>
+- I have installed <a href="https://jenkins.io/">Jenkins</a> on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a><br>
 - <a href="https://jenkins.io/solutions/java/">Configured Maven in Jenkins</a><br>
 - I have installed Deploy as Container <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
 - I have installed Jacoco <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
