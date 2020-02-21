@@ -1,20 +1,20 @@
 # at Terminal
 curl localhost:8090/$MYNAME/
-
-nano ~/$PROJECTNAME/$MYNAME/src/main/webapp/index.jsp
+cd ~/$PROJECTNAME
+nano $MYNAME/src/main/webapp/index.jsp
 <html>
 <head><title>$FIRST_NAME $LAST_NAME</title></head>
 <body>
 <h2>DevOps Engineer</h2>
 <p>XXX-XXX-XXXX <a href="mailto:$USERNAME@$DOMAIN">$USERNAME@$DOMAIN</a></p>
-<p>Welcome! My name is $FIRSTNAME $LASTNAME and below is a list of things I have accomplished so far</p>
+<p>Welcome! My name is $FIRSTNAME $LASTNAME and below is a list of things I have accomplished so far on my journey to being a DevOps Engineer</p>
 <p>
-- Setup <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
-- Setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket repositories</a><br>
-- Installed <a href="https://en.wikipedia.org/wiki/Git">Git</a> on Linux<br>
+- Setup <a href="https://en.wikipedia.org/wiki/Ubuntu">ubuntu</a> <a href="https://aws.amazon.com/ec2/faqs/">EC2 instances</a><br>
+- Setup <a href="https://bitbucket.org/dashboard/overview">Bitbucket <a href="https://en.wikipedia.org/wiki/Repository_(version_control)">repositories</a><br>
 - Installed <a href="https://www.java.com/en/">Java</a> on Linux<br>
 - Configured <a href="http://tomcat.apache.org/">Tomcat</a> Servers on Linux<br>
-- Built <a href="https://www.java.com/en/">Java</a> web apps with <a href="https://maven.apache.org/">Maven</a><br>
+- Installed <a href="https://en.wikipedia.org/wiki/Git">Git</a> on <a href="https://en.wikipedia.org/wiki/Linux">Linux</a><br>
+- Built <a href="https://en.wikipedia.org/wiki/Web_application">web apps</a> with <a href="https://maven.apache.org/">Maven</a><br>
 - Installed <a href="https://jenkins.io/">Jenkins</a> on Linux<br>
 - <a href="https://jenkins.io/solutions/java/">Configured Maven in Jenkins</a><br>
 - Installed Deploy as Container <a href="https://jenkins.io/doc/book/managing/plugins/">plugin in Jenkins</a><br>
@@ -23,11 +23,11 @@ nano ~/$PROJECTNAME/$MYNAME/src/main/webapp/index.jsp
 - Setup Tomcat credentials in Jenkins<br>
 - <a href="https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html">Setup Bitbucket app passwords for Jenkins</a><br>
 - Setup Bitbucket credentials in Jenkins<br>
-- Automated build jobs in Jenkins to Poll SCM every XX minutes<br>
-- Configured Global Security in Jenkins<br>
-- Setup triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate build on SCM push<br>
+- Automated build jobs in Jenkins to Poll Source Code Management<br>
+- Configured Jenkins Global Security<br>
+- Setup Build Triggers in Jenkins with <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> to automate builds on git push<br>
 - Setup webhooks in bitbucket<br>
-- Modified a webapp and pushed changes to SCM with git at the command line<br>
+- Modified a webapp and pushed changes to SCM with git<br>
 </p>
 </body>
 </html>
@@ -36,7 +36,7 @@ y
 
 git status
 git add .
-git commit -m "modified index.jsp to reflect current skill level"
+git commit -m "modified index.jsp to reflect current skill level up to triggering a jenkins build job on git push"
 git push
 
 curl localhost:8090/$MYNAME/
