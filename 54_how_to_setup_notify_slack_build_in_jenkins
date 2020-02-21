@@ -1,10 +1,10 @@
 # at ubuntu EC2 instance terminal
-cat ~/projectname/$MYNAME/pom.xml
+cat ~/$PROJECTNAME/$MYNAME/pom.xml
 
 # in browser
-http://$UBUNTU_INSTANCE_IP:$JENKINS_PORT
+http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
 - New Item
-  - Enter an Item name > notify_slack_on_build
+  - Enter an Item name > notify_slack_build
   - Freestyle Project > OK
     - Source Code Management > Git
     - Repository URL > https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
@@ -12,16 +12,19 @@ http://$UBUNTU_INSTANCE_IP:$JENKINS_PORT
     - Build Triggers
       - Trigger builds remotely (e.g., from scripts)
         - Authentication Token - $PROJECT_TOKEN
+    - Build Environment
+      - Prepare SonarQube Scanner environment
+        - Server authentication token > SonarQube Key
     - Build
       - Add Build step > invoke top level maven targets
         - Maven Version > Maven3
-        - Goals - clean install
+        - Goals - clean install sonar:sonar
         - Advanced
           - POM > $MYNAME/pom.xml
       - Add Build step > Nexus artifact uploader
         - Nexus Details
-          - Nexus Version > NEXUS3
-          - Nexus URL > $RHEL_INSTANCE_IP:$NEXUS_PORT # no http, no /
+          - Nexus Version > NEXUS 3
+          - Nexus URL > $RHEL_INSTANCE_IP:8081
           - Credentials > admin/****** (Nexus Key)
           - GroupId > values of <groupId> from ~/$PROJECTNAME/$MYNAME/pom.xml
           - Version > values of <version> from ~/$PROJECTNAME/$MYNAME/pom.xml
@@ -30,7 +33,7 @@ http://$UBUNTU_INSTANCE_IP:$JENKINS_PORT
             - ArtifactId > $MYNAME
             - Type > WAR
             - File > $MYNAME/target/$MYNAME.war
-          
+
     Post Build Actions
     - Add post-build action
         - Archive the artifacts > Files to archive > **/*.war
@@ -40,14 +43,14 @@ http://$UBUNTU_INSTANCE_IP:$JENKINS_PORT
         - Deploy war/ear to a container
             - WAR/EAR files > **/*.war
             - Containers > Add container > Tomcat X.x Remote
-              - Credentials
-                - select $TOMCAT_USERNAME/******($TOMCAT_CREDENTIALS)
-              - Tomcat URL > http://localhost:$TOMCAT_PORT
+                    - Credentials
+                        - select $TOMCAT_USERNAME/******($TOMCAT_CREDENTIALS)
+                    - Tomcat URL > http://localhost:$TOMCAT_PORT
     - Add post-build action
       - Slack Notifications
         - Notify Build Start
         - Notify Success
         - Notify Regression
         - Notify Every Failure
-        
+
     Save
