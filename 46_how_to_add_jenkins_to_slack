@@ -1,0 +1,12 @@
+# in browser
+https://www.slack.com
+Your workspaces > $WORKSPACE
+- ci_cd_builds
+  - Settings (Gear Wheel)
+    - Add an app
+      - Search by name or category > jenkins
+        - Jenkins CI > Install
+          - Add to Slack
+            - Post to Channel
+              - Choose a channel > $SLACK_CHANNEL
+              - Add integration
