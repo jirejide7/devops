@@ -1,5 +1,5 @@
 # at ubuntu EC2 instance terminal
-cat ~/projectname/$MYNAME/pom.xml
+cat ~/$PROJECTNAME/$MYNAME/pom.xml
 
 # in browser
 http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
@@ -14,7 +14,7 @@ http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
         - Authentication Token - $PROJECT_TOKEN
     - Build Environment
       - Prepare SonarQube Scanner environment
-        - Server authentication token > Sonarqube Key
+        - Server authentication token > SonarQube Key
     - Build
       - Add Build step > invoke top level maven targets
         - Maven Version > Maven3
@@ -23,6 +23,7 @@ http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
           - POM > $MYNAME/pom.xml
       - Add Build step > Nexus artifact uploader
         - Nexus Details
+          - Nexus Version > NEXUS 3
           - Nexus URL > $RHEL_INSTANCE_IP:8081
           - Credentials > admin/****** (Nexus Key)
           - GroupId > values of <groupId> from ~/$PROJECTNAME/$MYNAME/pom.xml
