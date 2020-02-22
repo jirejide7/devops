@@ -18,3 +18,4 @@ Enter
 ssh jenkins@$JENKINS_UBUNTU_SLAVE_PUBLIC_IP
 exit
 sudo cp ~/.ssh/known_hosts /var/lib/jenkins/.ssh
+sudo cat ~/.ssh/id_rsa
