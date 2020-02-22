@@ -1,0 +1,37 @@
+# How to provision an EC2 instance at amazonaws.com
+AWS Console
+- EC2
+  - Launch Instance
+    - Choose Amazon Machine Image
+      - Ubuntu Server XX.XX LTS(HVM)
+        - t2.micro, 1GB Memory
+        - Next: Configure Instances
+        - Next: Add Storage
+        - Next: Add tags
+         - Add Tag - Key: name Value: jenkins_ubuntu_slave_node
+        - Next: Configure Security Group
+          - Assign a Security Group
+            - Create a new security group
+              - Security group name: $JENKINS_SLAVE_SECURITY_GROUP
+              - Description: $JENKINS_SLAVE_SECURITY_GROUP_DESCRIPTION
+
+        - Port Range 22 > Source > Anywhere
+
+  - Review and Launch
+  - Launch
+    - Use existing key pair
+    - Key pair name > $UBUNTU_KEY_PAIR_NAME
+    - check I acknowledge that I have access to the selected private key file..
+  - Launch Instances
+    - View Instances
+      - Click on Pencil under Name > jenkins_slave > Enter
+  - Description
+    - IPv4 Public IP > copy this value      
+
+# at command line
+chmod 400 $KEY_PAIR_NAME.pem
+ssh -i $KEY_PAIR_NAME.pem ubuntu@$UBUNTU_EC2_PUBLIC_IP
+yes
+sudo apt update
+sudo apt -y full-upgrade
+- install the package maintainer's version > Enter
