@@ -8,7 +8,7 @@ AWS Console
         - Next: Configure Instances
         - Next: Add Storage
         - Next: Add tags
-         - Add Tag - Key: name Value: jenkins_ubuntu_slave_node
+         - Add Tag - Key: name Value: jenkins_ubuntu_slave
         - Next: Configure Security Group
           - Assign a Security Group
             - Create a new security group
