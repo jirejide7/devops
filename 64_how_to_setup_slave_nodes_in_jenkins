@@ -1,0 +1,17 @@
+# in browser
+http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
+Jenkins
+- Manage Jenkins
+  - Manage Nodes
+    - New Node
+      - Node Name > $NODE_NAME
+      - check Permanent Agent
+      - OK
+      - Description > Jenkins Slave Node
+      - # of executors > 1
+      - Remote root directory > /home/$JENKINS_USERNAME
+      - Labels > ubuntu
+      - Launch method > Launch agents via SSH
+        - Host > $JENKINS_UBUNTU_SLAVE_PUBLIC_IP
+      - Credentials > jenkins (Slave Key)
+Save
