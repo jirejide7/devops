@@ -1,0 +1,7 @@
+java -version
+sudo apt install -y openjdk-11-jdk
+java -version
+
+mvn --version
+sudo apt install -y maven
+mvn --version
