@@ -1,0 +1,20 @@
+# at $JENKINS_UBUNTU_SLAVE_PUBLIC_IP terminal
+cat etc/passwd
+sudo useradd --create-home jenkins
+cat etc/passwd
+sudo --user jenkins mkdir /home/jenkins/.ssh
+
+# at $UBUNTU_EC2_INSTANCE terminal (master node)
+sudo cat ~/.ssh/id_rsa.pub
+
+# at $JENKINS_UBUNTU_SLAVE_PUBLIC_IP terminal
+sudo --user jenkins vi /home/jenkins/.ssh/authorized_keys
+# paste contents of cat ~/.ssh/id_rsa.pub from master node
+Esc
+:wq!
+Enter
+
+# at $UBUNTU_EC2_INSTANCE terminal (master node)
+ssh jenkins@$JENKINS_UBUNTU_SLAVE_PUBLIC_IP
+exit
+sudo cp ~/.ssh/known_hosts /var/lib/jenkins/.ssh

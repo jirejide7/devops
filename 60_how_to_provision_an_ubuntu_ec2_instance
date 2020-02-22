@@ -8,7 +8,7 @@ AWS Console
         - Next: Configure Instances
         - Next: Add Storage
         - Next: Add tags
-         - Add Tag - Key: name Value: jenkins_ubuntu_slave
+         - Add Tag - Key: name Value: $JENKINS_SLAVE
         - Next: Configure Security Group
           - Assign a Security Group
             - Create a new security group
@@ -30,7 +30,7 @@ AWS Console
 
 # at command line
 chmod 400 $KEY_PAIR_NAME.pem
-ssh -i $KEY_PAIR_NAME.pem ubuntu@$UBUNTU_EC2_PUBLIC_IP
+ssh -i $KEY_PAIR_NAME.pem ubuntu@$JENKINS_UBUNTU_SLAVE_PUBLIC_IP
 yes
 sudo apt update
 sudo apt -y full-upgrade
