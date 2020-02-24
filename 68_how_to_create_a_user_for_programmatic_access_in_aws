@@ -9,9 +9,9 @@ AWS Console
           - AmazonVPCFullAccess
         - Next tags > Add tags
           - Key > name
-          - value > terraform
+          - value > $TERRAFORM_USERNAME
         - Next Review
         - Create User
         - Download .csv
-          - Save as TerraformKey
+          - Save as $TERRAFORM_ACCESS_KEY
         - Close
