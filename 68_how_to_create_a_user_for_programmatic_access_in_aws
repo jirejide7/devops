@@ -1,0 +1,21 @@
+AWS Console
+- IAM
+  - Users
+    - Add user
+      - User name* > $TERRAFORM_USERNAME
+      - Access Type > Programmatic access
+        - Next Permissions > Attach existing policies directly
+          - AmazonEC2FullAccess
+          - AmazonVPCFullAccess
+        - Next tags > Add tags
+          - Key > name
+          - value > terraform
+        - Next Review
+        - Create User
+        - Download .csv
+        - Close
+- Username
+  - My Security Credentials
+    - Access keys
+      - Create a new access key
+        - Download
