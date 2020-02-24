@@ -22,17 +22,6 @@ resource "aws_key_pair" "terraform_key" {
 	public_key=file("${path.root}/terraform_key.pub")
 }
 
-resource "aws_instance" "myFirstEC2Instance" {
-	ami="ami-0fc20dd1da406780b"
-	count=1
-	key_name="terraform_key"
-	instance_type="t2.micro"
-	security_groups=["jenkins_security_group"]
-	tags={
-		name="jenkins_instance"
-	}
-}
-
 resource "aws_security_group" "jenkins_security_group" {
 	name="jenkins_security_group"
 	description="jenkins security group"
@@ -62,6 +51,18 @@ resource "aws_security_group" "jenkins_security_group" {
 		name="jenkins_security_group"
 	}
 }
+
+resource "aws_instance" "TerraformedEC2Instance" {
+	ami="ami-0fc20dd1da406780b"
+	count=1
+	key_name="terraform_key"
+	instance_type="t2.micro"
+	security_groups=["jenkins_security_group"]
+	tags={
+		name="jenkins_instance"
+	}
+}
+
 ctrl+x
 y
 Enter
