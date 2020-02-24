@@ -13,9 +13,5 @@ AWS Console
         - Next Review
         - Create User
         - Download .csv
+          - Save as TerraformKey
         - Close
-- Username
-  - My Security Credentials
-    - Access keys
-      - Create a new access key
-        - Download
