@@ -1,0 +1,37 @@
+# How to provision a Windows EC2 instance at amazonaws.com
+AWS Console
+- EC2
+  - Launch Instance
+    - Choose Amazon Machine Image
+      - Microsoft Windows Server XXXX
+        - t2.micro
+        - Next: Configure Instances
+        - Next: Add Storage
+        - Next: Add tags
+         - Add Tag - Key: name Value: ubuntu ec2 Instance
+        - Next: Configure Security Group
+          - Assign a Security Group
+            - Create a new security group
+              - Security group name: $WINDOWS_SECURITY_GROUP
+              - Description: $UBUNTU_SECURITY_GROUP_DESCRIPTION
+        - Port Range 3389 > Source > My IP
+
+  - Review and Launch
+  - Launch
+    - Create a new key pair
+    - Key pair name > $WINDOWS_KEY_PAIR_NAME
+  - Download Key Pair
+  - Launch Instances
+    - View Instances
+      - Click on Pencil under Name > windows > Enter
+  - Description
+    - IPv4 Public IP > copy this value
+  - Actions > Connect
+    - Password > Get Passowrd
+      - Choose File > $WINDOWS_KEY_PAIR_NAME
+        - Decrypt Password > Copy password
+
+# at command line
+sudo apt install -y xfreerdp2-x11
+xfreerdp /u:"Administrator" /v:$WINDOWS_INSTANCE_PUBLIC_IP:3389
+paste Password when prompted
