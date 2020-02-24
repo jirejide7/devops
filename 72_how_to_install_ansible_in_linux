@@ -1,5 +1,6 @@
 sudo su
 apt update
+pip3 install boto boto3 ansible
 apt install -y python3-pip
 pip3 install boto boto3 ansible
 pip3 list boto | grep boto
