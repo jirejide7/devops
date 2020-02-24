@@ -1,0 +1,113 @@
+http://$UBUNTU_EC2_PUBLIC_IP:$JENKINS_PORT
+log in
+Username > $JENKINS_USERNAME
+Password > $JENKINS_PASSWORD
+
+Jenkins
+- New Item
+  - Enter an item name > poll_scm_pipeline
+  - Pipeline > OK
+    - Build Triggers > poll SCM > Schedule > H/02 * * * *
+    - Pipeline
+      - Pipeline syntax
+        - Steps 
+          - Sample Step > checkout
+            - checkout: Checkout from version control
+              - Repository URL: https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME
+              - Credentials > select $GIT_USERNAME/******(Bitbucket Key)
+        - Generate Pipeline script > copy contents
+      - Pipeline:
+        - Definition > Pipeline script
+          - Script >
+            node {
+                def MVNHOME = tool 'Maven3'
+                def MYNAME = $MYNAME
+
+                stage ("checkout") {
+                     [$class: 'GitSCM',
+                      branches: [[name: '*/master']],
+                      doGenerateSubmoduleConfigurations: false,
+                      extensions: [],
+                      submoduleCfg: [],
+                      userRemoteConfigs: [
+                        [credentialsId: 'bitbucket_key',
+                         url: 'https://bitbucket.org/$GIT_USERNAME/$PROJECTNAME']
+                      ]
+                     ]  
+                }
+            
+            
+                stage ("Build") {
+                    sh "${MVNHOME}/bin/mvn clean install -f ${MYNAME}/pom.xml"
+                }
+            
+                stage ("Code Quality Scan") {
+                    withSonarQubeEnv('SonarQube') {
+                        sh "${MVNHOME}/bin/mvn -f ${MYNAME}/pom.sml sonar:sonar"
+                    }
+                }
+                
+                stage ("Code Coverage") {
+                    jacoco()
+                }
+                
+                stage ("Nexus upload) {
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        nexusUrl: '${RHEL_INSTANCE_IP}:${NEXUS_PORT}',
+                        groupId: 'com.${MYNAME}',
+                        version: '1.0-SNAPSHOT',
+                        repository: 'maven-snapshots'
+                        credentialsId: 'nexus_key'
+                        artifacts: [
+                            [artifactId: '${MYNAME}',
+                             classifier: '',
+                             file: '${MYNAME}/target/${MYNAME}.war',
+                             type: 'war']
+                        ]
+                    )
+                }
+                
+                stage ('DEV Deploy') {
+                    echo "deploying to Development Environment"
+                    deploy adapters: [tomcat9(
+                        credentialsId: 'tomcat_key', 
+                        path: '',
+                        url: 'http://localhost:${TOMCAT_PORT}'
+                    )], contextPath: null, war: '**/*.war'
+                }
+                
+                stage ('DEV Approve') {
+                    echo "Requesting approval from Development manager"
+                    timeout(time: ${TIME}, unit: 'DAYS') {
+                        input message: 'Do you want to deploy?',
+                        submitter: 'admin'
+                    }
+                }
+                
+                stage ('Slack Notification') {
+                    slackSend(
+                        channel:'${SLACK_CHANNEL}',
+                        message: "Job completed successfully - '${env.JOB_NAME}[$${env.BUILD_NUMBER}]'(${env.BUILD_URL})"
+                    )
+                }
+                
+                stage ('Quality Assurance Deploy') {
+                    echo "deploying to Quality Assurance Environment"
+                    deploy adapters: [tomcat9(
+                        credentialsId: 'tomcat_key',
+                        path: '',
+                        url: 'http://localhost:8090'
+                    )], contextPath: null, 'war: **/*.war'
+                }
+                
+                stage ('Quality Assurance Approve') {
+                    echo "Taking approval from QA Manager"
+                    timeout(time: XX, unit: 'DAYS') {
+                        input message: 'Do you want to proceed to PRODUCTION?',
+                        submitter: 'admin,manager_userid'
+                    }
+                }
+            }
+Save
