@@ -1,7 +1,4 @@
 terraform -version
-sudo snap install terraform
-terraform -version
-sudo su
 mkdir -p /opt/terraform
 cd /opt/terraform
 TERRAFORM=terraform_0.12.21_linux_amd64
@@ -10,7 +7,7 @@ apt install -y unzip
 unzip $TERRAFORM.zip
 exit
 terraform -version
-sudo snap remove terraform
+sudo rm $TERRAFORM.zip
 terraform -version
 nano ~/.bashrc
 export PATH="/opt/terraform:$PATH"

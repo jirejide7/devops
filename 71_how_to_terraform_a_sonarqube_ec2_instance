@@ -2,7 +2,9 @@
 cd ~
 mkdir $TERRAFORM_SONARQUBE
 cd $TERRAFORM_SONARQUBE
-ssh-keygen -f $TERRAFORM_KEY
+ssh-keygen -f $TERRAFORM_SONARQUBE_KEY
+
+terraform init
 
 nano aws.tf
 provider "aws" {
@@ -14,13 +16,12 @@ ctrl+x
 y
 Enter
 terraform validate
-terraform init
 
 nano create_sonarqube_ec2.tf
 
-resource "aws_key_pair" "terraform_key" {
+resource "aws_key_pair" "$TERRAFORM_SONARQUBE_KEY" {
 	key_name="terraform_key"
-	public_key=file("${path.root}/terraform_key.pub")
+	public_key=file("${path.root}/$TERRAFORM_SONARQUBE_KEY.pub")
 }
 
 resource "aws_security_group" "sonarqube_security_group" {
@@ -61,7 +62,7 @@ resource "aws_instance" "TerraformedSonarQubeEC2" {
 	instance_type="t2.micro"
 	security_groups=["sonarqube_security_group"]
 	tags={
-		name="jenkins_instance"
+		name="sonarqube_instance"
 	}
 }
 
@@ -72,3 +73,4 @@ Enter
 terraform validate
 terraform plan
 terraform apply
+yes
