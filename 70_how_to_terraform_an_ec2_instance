@@ -37,7 +37,7 @@ resource "aws_security_group" "jenkins_security_group" {
 		from_port=22
 		to_port=22
 		protocol="tcp"
-		cidr_blocks=["70.122.132.2/32"]
+		cidr_blocks=["$MY_IPADDRESS/32"]
 	}
 
 	egress {
