@@ -5,6 +5,6 @@ apt update
 apt install --yes ansible
 apt install -y python3-pip
 pip3 install boto3
-pip list boto | grep boto
+pip3 list boto | grep boto
 exit
 ansible --version
