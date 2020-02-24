@@ -1,0 +1,10 @@
+sudo su
+apt install software-properties-common
+apt-add-repository --yes --update ppa:ansible/ansible
+apt update
+apt install --yes ansible
+apt install -y python3-pip
+pip3 install boto3
+pip list boto | grep boto
+exit
+ansible --version
