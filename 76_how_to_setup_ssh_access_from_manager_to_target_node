@@ -1,0 +1,41 @@
+# @ansible manager node
+sudo nano ~/.bashrc
+# change all \h to $MANAGER_NODE
+ctrl+x
+y
+Enter
+source ~/.bashrc
+
+ssh-keygen
+Enter
+Enter
+Enter
+sudo cat ~/.ssh/id_rsa.pub
+# copy contents of ~/.ssh/id_rsa.pub
+ssh $USERNAME@$TARGET_NODE_IP
+
+# @ansible target node
+sudo nano ~/.bashrc
+# change all \h to $TARGET_NODE
+ctrl+x
+y
+Enter
+soruce ~/.bashrc
+
+sudo vi ~/.ssh/authorized_keys
+shift+A
+Enter
+Shift+Ctrl+V
+Esc
+:wq!
+
+# @ansible manager node
+ssh $USERNAME@$TARGET_NODE_PUBLIC_IP
+exit
+sudo vi /etc/ansible/hosts
+o
+[Java Group]
+$TARGET_NODE_PUBLIC_IP ansible_ssh_user=$USERNAME ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3
+Esc
+:wq!
