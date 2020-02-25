@@ -33,10 +33,10 @@ Enter
 
 sudo ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' installJenkinsOnTarget.yml
 
-curl http://$TARGET_NODE_PUBLIC_IP:8080
+curl $TARGET_NODE_PUBLIC_IP:$JENKINS_PORT
 
 # @TargetNode
-curl localhost:8080
+curl localhost:$JENKINS_PORT
 
 # In browser
-http://$TARGET_NODE_PUBLIC_IP:8080
+http://$TARGET_NODE_PUBLIC_IP:$JENKINS_PORT
