@@ -21,7 +21,7 @@ mkdir playbooks
 cd playbooks
 ssh-keygen -f $ANSIBLE_KEY
 
-sudo vi create_jenkins_ec2.yml
+vi create_jenkins_ec2.yml
 i
 ---
 - name: ansible playbook to provision ec2 with jenkins

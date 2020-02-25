@@ -1,6 +1,6 @@
 # @ManagerNode
 cd ~/playbooks
-sudo vi installJDKOnTarget.yml
+vi installJDKOnTarget.yml
 i
 ---
 - hosts: $TARGET_GROUP
