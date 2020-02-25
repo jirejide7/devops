@@ -1,0 +1,20 @@
+# @TargetNode
+mvn -version
+
+# @MasterNode
+nano installMaven.yml
+---
+- hosts: $TARGET_GROUP
+  tasks:
+  - name: install maven on target node
+    become: true
+    apt:
+      name: maven
+ctrl+x
+y
+Enter
+
+sudo ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' installMavenOnTarget.yml
+
+# @TargetNode
+mvn -version
