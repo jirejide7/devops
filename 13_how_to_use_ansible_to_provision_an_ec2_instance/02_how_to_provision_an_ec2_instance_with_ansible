@@ -110,4 +110,4 @@ i
          Name: ansible_jenkins_ec2
 Esc
 :wq!
-sudo ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' create_jenkins_ec2.yml
+sudo ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' provision_ec2.yml
