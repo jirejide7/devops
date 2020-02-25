@@ -1,0 +1,20 @@
+nano terminate_ec2_instances.yml
+---
+- name: ansible playbook to terminate ec2 instances
+  hosts: all
+  
+  vars:
+  - region: "us-east-2"
+  - ec2_id: "$EC2_INSTANCE_ID"
+
+  tasks:
+  - name: terminate ec2 instance
+    ec2:
+      state: 'absent'
+      instance_ids: "{{ ec2_id }}"
+      region: "{{ region }}"
+ctrl+x
+y
+Enter
+
+ansible-playbook terminate_ec2_instances.yml -e ec2_id=$EC2_INSTANCE_ID -e 'ansible_python_interpreter=/usr/bin/python3'
