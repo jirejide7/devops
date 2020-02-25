@@ -3,7 +3,7 @@ cd ~/playbooks
 sudo vi installJDKOnTarget.yml
 i
 ---
-- hosts: Java_Group
+- hosts: $TARGET_GROUP
 
   tasks:
   - name: update APT repositories cache

@@ -34,7 +34,7 @@ ssh $USERNAME@$TARGET_NODE_PUBLIC_IP
 exit
 sudo vi /etc/ansible/hosts
 o
-[Java_Group]
+[$TARGET_GROUP]
 $TARGET_NODE_PUBLIC_IP ansible_ssh_user=$USERNAME ansible_ssh_private_key_file=~/.ssh/id_rsa
 ansible_python_interpreter=/usr/bin/python3
 Esc
