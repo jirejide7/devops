@@ -1,0 +1,40 @@
+# @MasterNode
+sudo vi installJenkinsOnTarget.yml
+i
+---
+- hosts: $TARGET_GROUP
+
+  tasks:
+  - name: add key for jenkins repository
+    become: yes
+    apt_key: 
+      url=https://pkg.jenkins.io/debian-stable/jenkins.io.key 
+      state=present
+
+  - name: add jenkins repository to apt sources list
+    become: yes
+    apt_repository: 
+      repo='deb https://pkg.jenkins.io/debian-stable binary/' 
+      state=present
+
+  - name: install jenkins
+    become: yes
+    apt: 
+      name=jenkins
+      update_cache=yes
+
+  - name: verify jenkins is running
+    service: 
+      name=jenkins
+      state=started
+Esc
+:wq!
+Enter
+
+sudo ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' installJenkinsOnTarget.yml
+
+# @TargetNode
+curl localhost:8080
+
+# In browser
+http://$TARGET_NODE_PUBLIC_IP:8080
