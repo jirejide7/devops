@@ -21,10 +21,10 @@ mkdir playbooks
 cd playbooks
 ssh-keygen -f $ANSIBLE_KEY
 
-vi create_jenkins_ec2.yml
+vi provision_ec2.yml
 i
 ---
-- name: ansible playbook to provision ec2 with jenkins
+- name: ansible playbook to provision ec2 instance
   hosts: localhost
   connection: local
   gather_facts: False
@@ -38,7 +38,7 @@ i
     group: $WEBSERVER
     count: 1
     region: us-east-2
-    security_group: $JENKINS_SECURITY_GROUP
+    security_group: $SECURITY_GROUP
 
   tasks:
   
@@ -48,24 +48,36 @@ i
         key_material: "{{ lookup('file', '$ANSIBLE_KEY.pub') }}"
         region: "{{ region }}"
 
-    - name: Create jenkins security group
+    - name: Create security group
       local_action:
         module: ec2_group
           name: "{{ security_group }}"
-          description: $JENKINS_SECURITY_GROUP_DESCRIPTION
+          description: $SECURITY_GROUP_DESCRIPTION
           region: "{{ region }}" 
           rules:
             - proto: tcp
-              from_port: 22
-              to_port: 22
+              from_port: $SSH_PORT
+              to_port: $SSH_PORT
               cidr_ip: 0.0.0.0/0
             - proto: tcp
-              from_port: 8080
-              to_port: 8080
+              from_port: $JENKINS_PORT
+              to_port: $JENKINS_PORT
               cidr_ip: 0.0.0.0/0
             - proto: tcp
-              from_port: 443
-              to_port: 443
+              from_port: $SONARQUBE_PORT
+              to_port: $SONARQUBE_PORT
+              cidr_ip: 0.0.0.0/0
+            - proto: tcp
+              from_port: $APACHE_PORT
+              to_port: $APACHE_PORT
+              cidr_ip: 0.0.0.0/0
+            - proto: tcp
+              from_port: $TOMCAT_PORT
+              to_port: $TOMCAT_PORT
+              cidr_ip: 0.0.0.0/0
+            - proto: tcp
+              from_port: $HTTPS_PORT
+              to_port: $HTTPS_PORT
               cidr_ip: 0.0.0.0/0
           rules_egress:
             - proto: all
