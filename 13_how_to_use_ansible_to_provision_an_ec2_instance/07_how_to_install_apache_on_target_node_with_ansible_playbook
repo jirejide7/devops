@@ -1,0 +1,28 @@
+# @ManagerNode
+cd ~/playbooks
+vi installApacheOnTarget.yml
+i
+---
+- hosts: $TARGET_GROUP
+  become: true
+  tasks:
+  - name: install apache
+    apt:
+      name: apache2
+      state: present
+      update_cache: yes
+
+  - name: verify apache service is running
+    service:
+      name: apache2
+      state: started
+      enabled: yes
+Esc
+:wq!
+
+sudo ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' installApacheOnTarget.yml
+
+curl $TARGET_NODE_PUBLIC_IP:$APACHE_PORT
+
+# In browser
+http://$TARGET_NODE_PUBLIC_IP:$APACHE_PORT
