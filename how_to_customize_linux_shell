@@ -1,0 +1,25 @@
+echo $PS1
+DEFAULT=$PS1
+PS1="\u\$ "
+PS1="\u\-> "
+PS1="\u\$ --> "
+PS1="\u\? "
+PS1="\u:\w\$ "
+PS1=$DEFAULT
+PS1="[$CUSTOM_TEXT] \u@\h:\w\$ "
+PS1="\d \u@\h:\w\$ "
+PS1="\A \u@\h:\w\$ "
+PS1="\A user:\u of group:`id -gn`@\h:\w\$ "
+PS1=$DEFAULT'
+PS1="\[\033[01;31m\]\]\u\$"
+PS1="\[\033[01;31m\]\]\u@\[\033[01;32m\]\]\h\$ "
+PS1="\[\033[01;31m\]\]\u@\[\033[01;32m\]\]\h\[\033[01;34m\]\]\w\$ "
+PS1=$DEFAULT
+echo $PS1
+sudo nano ~/.bashrc
+# replace \h in PS1 with $NICKNAME
+ctrl+x
+y
+Enter
+source ~/.bashrc
+
