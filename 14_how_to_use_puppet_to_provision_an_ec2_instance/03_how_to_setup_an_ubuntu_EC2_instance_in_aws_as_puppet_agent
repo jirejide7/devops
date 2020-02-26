@@ -1,0 +1,27 @@
+PUPPET_PORT=8140
+
+# How to provision an EC2 instance at amazonaws.com
+AWS Console
+- EC2
+  - Instances
+    - Select puppet_master
+      - Actions > Launch More Like This
+  - Launch
+    - Choose an existing key pair
+    - Select a key pair > $PUPPET_KEY_PAIR_NAME
+    - check I acknowledge that I have access to the selected ...
+  - Launch Instances
+    - View Instances
+      - Click on Pencil under Name > puppet_agent > Enter
+  - Description
+    - IPv4 Public IP > copy this value      
+
+# at command line
+chmod 400 $PUPPET_KEY_PAIR_NAME.pem
+ssh -i $PUPPET_KEY_PAIR_NAME.pem ubuntu@$PUPPET_EC2_PUBLIC_IP
+yes
+Enter
+sudo apt update
+sudo apt full-upgrade --yes
+Enter
+- install the package maintainer's version > Enter
