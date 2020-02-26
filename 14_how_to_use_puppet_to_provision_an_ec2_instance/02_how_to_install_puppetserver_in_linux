@@ -1,0 +1,35 @@
+# @PuppetServer
+
+nano ~/.bashrc
+\h
+PuppetServer
+y
+y
+y
+ctrl+x
+y
+Enter
+source ~/.bashrc
+
+systemctl status puppetserver
+RELEASE=jessie|stretch|buster|bionic|xenial
+PUPPET=puppet6-release-$RELEASE.deb
+sudo su
+apt install puppetserver
+wget https://apt.puppet.com/$PUPPET
+dpkg -i $PUPPET
+add-apt-repository universe
+apt install puppetserver
+apt update
+apt install puppetserver --yes
+
+ufw allow 8140
+
+systemctl status puppetserver
+
+systemctl enable puppetserver
+systemctl status puppetserver
+
+systemctl start puppetserver
+systemctl status puppetserver
+q

@@ -1,18 +1,31 @@
+# @PuppetServer
+
 nano ~/.bashrc
-# change all \h to PuppetMaster
+ctrl+\
+\h
+PuppetAgent
+y
+y
+y
 ctrl+x
 y
 Enter
 source ~/.bashrc
 
 systemctl status puppetserver
+RELEASE=jessie|stretch|buster|bionic|xenial
+PUPPET=puppet6-release-$RELEASE.deb
 sudo su
-wget https://apt.puppetlabs.com/puppet6-release-xenial.deb
-dpkg -i puppet6-release-xenial.deb
+apt install puppetserver
+wget https://apt.puppet.com/$PUPPET
+dpkg -i $PUPPET
+add-apt-repository universe
+apt install puppetserver
 apt update
 apt install puppetserver --yes
 
 ufw allow 8140
+
 systemctl status puppetserver
 
 systemctl enable puppetserver

@@ -10,7 +10,7 @@ AWS Console
         - Next: Configure Instances
         - Next: Add Storage
         - Next: Add tags
-         - Add Tag - Key: name Value: puppet master ec2 instance
+         - Add Tag - Key: name Value: puppet server ec2 instance
         - Next: Configure Security Group
           - Assign a Security Group
             - Create a new security group
@@ -26,7 +26,7 @@ AWS Console
   - Download Key Pair
   - Launch Instances
     - View Instances
-      - Click on Pencil under Name > puppet_master > Enter
+      - Click on Pencil under Name > puppet_server > Enter
   - Description
     - IPv4 Public IP > copy this value      
 

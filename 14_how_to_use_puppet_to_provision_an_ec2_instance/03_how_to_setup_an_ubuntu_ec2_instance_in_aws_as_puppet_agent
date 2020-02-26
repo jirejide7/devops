@@ -4,7 +4,7 @@ PUPPET_PORT=8140
 AWS Console
 - EC2
   - Instances
-    - Select puppet_master
+    - Select puppet_server
       - Actions > Launch More Like This
   - Launch
     - Choose an existing key pair
@@ -18,7 +18,7 @@ AWS Console
 
 # at command line
 chmod 400 $PUPPET_KEY_PAIR_NAME.pem
-ssh -i $PUPPET_KEY_PAIR_NAME.pem ubuntu@$PUPPET_EC2_PUBLIC_IP
+ssh -i $PUPPET_KEY_PAIR_NAME.pem ubuntu@$PUPPET_AGENT_EC2_PUBLIC_IP
 yes
 Enter
 sudo apt update
