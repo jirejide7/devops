@@ -1,0 +1,13 @@
+puppet resource ec2_instance
+
+mkdir ~/.aws
+vi ~/.aws/credentials
+i
+[default]
+aws_access_key_id = "$AWS_ACCESS_KEY_ID from $PUPPET_ACCESS_KEY.csv"
+aws_secret_access_key = "$AWS_SECRET_ACCESS_KEY from $PUPPET_ACCESS_KEY.csv"
+Esc
+:wq!
+Enter
+
+puppet resource ec2_instance
