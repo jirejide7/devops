@@ -1,12 +1,12 @@
-sudo nano ~/.bashrc
+nano ~/.bashrc
 # change all \h to PuppetMaster
 ctrl+x
 y
 Enter
 source ~/.bashrc
 
-sudo su
 systemctl status puppetserver
+sudo su
 wget https://apt.puppetlabs.com/puppet6-release-xenial.deb
 dpkg -i puppet6-release-xenial.deb
 apt update
