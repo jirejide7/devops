@@ -20,5 +20,3 @@ gem install aws-sdk retries
 puppet module install puppetlabs-aws
 
 exit
-
-
