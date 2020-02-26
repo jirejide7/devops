@@ -32,4 +32,5 @@ systemctl status puppetserver
 
 systemctl start puppetserver
 systemctl status puppetserver
+exit
 q
