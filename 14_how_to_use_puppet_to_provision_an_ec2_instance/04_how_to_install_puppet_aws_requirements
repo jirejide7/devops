@@ -17,6 +17,6 @@ y
 
 gem install aws-sdk-core retries
 gem install aws-sdk retries
-puppet module install puppetlabs-aws
+puppet module install puppetlabs-aws --force
 
 exit
