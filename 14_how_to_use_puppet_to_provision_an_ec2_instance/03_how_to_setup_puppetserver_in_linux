@@ -1,0 +1,28 @@
+nano ~/.bashrc
+ctrl+\
+\h
+Enter
+PuppetServer
+Enter
+y
+y
+y
+ctrl+y
+source ~/.bashrc
+
+sudo su
+PUPPET=puppetlabs-release-pc1-xenial.deb
+ls
+wget https://apt.puppetlabs.com/$PUPPET
+ls
+dpkg -i $PUPPET
+apt update
+apt full-upgrade --yes
+apt install puppetserver --yes
+ufw allow 8140
+systemctl status puppetserver
+q
+systemctl enable puppetserver
+systemctl status puppetserver
+q
+exit
