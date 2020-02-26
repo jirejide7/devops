@@ -31,6 +31,6 @@ systemctl enable puppetserver
 systemctl status puppetserver
 
 systemctl start puppetserver
-systemctl status puppetserver
 exit
+systemctl status puppetserver
 q
