@@ -1,3 +1,5 @@
+# @PuppetServer
+
 nano ~/.bashrc
 ctrl+\
 \h
@@ -8,6 +10,7 @@ y
 y
 y
 ctrl+y
+Enter
 source ~/.bashrc
 
 sudo su
@@ -24,5 +27,31 @@ systemctl status puppetserver
 q
 systemctl enable puppetserver
 systemctl status puppetserver
+
+systemctl start puppetserver
+systemctl status puppetserver
 q
+
+puppetserver --version
+nano ~/.bashrc
+export PATH=/opt/puppetlabs/server/bin:$PATH
+ctrl+x
+y
+Enter
+
+puppetserver --version
+source ~/.bashrc
+puppetserver --version
+
 exit
+
+puppetserver --version
+nano ~/.bashrc
+export PATH=/opt/puppetlabs/server/bin:$PATH
+ctrl+x
+y
+Enter
+
+puppetserver --version
+source ~/.bashrc
+puppetserver --version
