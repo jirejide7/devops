@@ -1,0 +1,42 @@
+# @PuppetAgent
+
+nano ~/.bashrc
+ctrl+\
+\h
+Enter
+PuppetAgent
+Enter
+y
+y
+y
+ctrl+y
+Enter
+source ~/.bashrc
+
+sudo su
+PUPPET=puppetlabs-release-pc1-xenial.deb
+ls
+wget https://apt.puppetlabs.com/$PUPPET
+ls
+dpkg -i $PUPPET
+apt update
+apt full-upgrade --yes
+apt install puppet-agent --yes
+
+systemctl status puppet
+systemctl enable puppet
+systemctl status puppet
+
+systemctl start puppet
+systemctl status puppet
+q
+
+nano ~/.bashrc
+export PATH=/opt/puppetlabs/puppet/bin:$PATH
+ctrl+x
+y
+Enter
+source ~/.bashrc
+
+exit
+
