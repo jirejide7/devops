@@ -1,0 +1,80 @@
+sudo su
+docker images
+
+docker search ubuntu
+docker search alpine
+docker search debian
+docker search kali
+docker search RHEL
+
+docker search openjdk
+docker search tomcat
+docker search maven
+docker search ant
+docker search jenkins
+
+docker search python
+docker search java
+docker search aws
+docker search gcp
+
+docker images
+docker pull debian
+
+docker ps
+docker ps -a
+
+docker run -it alpine /bin/sh
+echo "inside docker alpine container"
+exit
+
+docker ps
+docker run -d $MY_DOCKER_USERNAME/$PYTHON_APP_NAME
+docker ps
+docker stop $CONTAINER_ID
+docker ps
+
+docker run -d $MY_DOCKER_USERNAME/$PYTHON_APP_NAME
+docker ps
+docker stop $CONTAINER_NAME
+docker ps
+
+docker run -d $MY_DOCKER_USERNAME/$PYTHON_APP_NAME
+docker ps
+docker rm $CONTAINER_ID
+docker stop $CONTAINER_ID
+docker rm $CONTAINER_ID
+
+docker ps -a
+docker rm $CONTAINER_NAME
+docker ps -a
+
+docker images
+docker rmi debian
+docker ps -a
+docker rm $CONTAINER_NAME | $CONTAINER_ID
+docker ps -a
+
+docker rmi debian
+docker images
+
+docker run alpine ls -l
+
+docker run --name static-site -e AUTHOR="$MY_NAME" -d -P dockersamples/static-site
+docker port static-site
+curl localhost:32768
+curl localhost:32769
+
+docker ps
+docker stop static-site && docker rm static-site
+docker ps
+
+docker ps -a
+docker stop $CONTAINER_NAME && docker rm $CONTAINER_NAME
+docker stop $CONTAINER_ID && docker rm $CONTAINER_ID
+docker ps
+
+docker images
+docker rmi ubuntu tomcat alpine hello-world dockersamples/static-site
+
+exit

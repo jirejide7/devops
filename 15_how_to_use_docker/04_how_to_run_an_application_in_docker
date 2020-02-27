@@ -1,0 +1,18 @@
+cd ~
+curl localhost:8080
+
+sudo su
+docker run -p 8080:5000 --rm --name myFirstContainer $MY_DOCKER_USERNAME/$PYTHON_APP_NAME
+
+ctrl+shift+t
+ssh -i $DOCKER_EC2_KEY ubuntu@$DOCKER_EC2_PUBLIC_IP
+yes
+Enter
+
+curl localhost:8080
+
+# in browser
+http://$DOCKER_EC2_INSTANCE_PUBLIC_IP:8080
+
+# @terminal running docker
+ctrl+c
