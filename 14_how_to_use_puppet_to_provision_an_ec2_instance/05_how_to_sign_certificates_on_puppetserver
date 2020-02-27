@@ -6,4 +6,5 @@ y
 Enter
 source ~/.bashrc
 
-puppet cert list /
+puppet cert list
+puppet cert sign $PUPPET_AGENT_PRIVATE_DNS_NAME
