@@ -1,0 +1,9 @@
+puppet cert list
+nano ~/.bashrc
+export PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:$PATH
+ctrl+x
+y
+Enter
+source ~/.bashrc
+
+puppet cert list /
