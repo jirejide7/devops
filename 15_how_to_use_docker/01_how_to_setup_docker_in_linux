@@ -1,0 +1,26 @@
+sudo su
+
+docker --version
+
+apt update
+apt full-upgrade --yes
+Enter
+Install package maintainer's version
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt update
+apt-cache policy docker-ce
+apt install docker-ce --yes
+
+systemctl status docker
+
+ps -ef | grep docker
+
+docker --version
+
+docker run hello-world
+
+docker run -it ubuntu bash
+echo "an ubuntu docker container running on docker in ubuntu"
+exit
+exit
