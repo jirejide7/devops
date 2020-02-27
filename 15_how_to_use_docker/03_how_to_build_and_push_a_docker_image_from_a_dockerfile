@@ -34,3 +34,5 @@ $MY_DOCKER_PASSWORD
 
 docker images
 docker push $MYDOCKER_USERNAME/$PYTHON_APP_NAME
+
+exit
