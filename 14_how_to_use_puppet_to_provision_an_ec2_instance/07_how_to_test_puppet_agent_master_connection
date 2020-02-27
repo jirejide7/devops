@@ -1,0 +1,2 @@
+puppet agent --test
+cat /tmp/puppet_test.txt

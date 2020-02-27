@@ -1,0 +1,12 @@
+sudo nano /etc/puppetlabs/code/environments/production/manifests/site.pp
+
+file {'/tmp/puppet_test.txt':
+  ensure    => present,
+  mode      => '0644',
+  content   => "hello from PuppetServer to agent on ${ipaddress_eth0}!\n"
+}
+
+ctrl+x
+y
+Enter
+
