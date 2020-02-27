@@ -27,8 +27,8 @@ resource "aws_key_pair" "$DOCKER_EC2_KEY" {
 	public_key=file("${path.root}/$DOCKER_EC2_KEY.pub")
 }
 
-resource "aws_security_group" "docker_security_group" {
-	name="docker_security_group"
+resource "aws_security_group" "$DOCKER_SECURITY_GROUP" {
+	name="$DOCKER_SECURITY_GROUP"
 	description="docker security group"
 	
 	ingress {
@@ -57,14 +57,14 @@ resource "aws_security_group" "docker_security_group" {
 	}
 }
 
-resource "aws_instance" "TerraformedEC2Instance" {
+resource "aws_instance" "docker_ec2_instance" {
 	ami="ami-0fc20dd1da406780b"
 	count=1
-	key_name="terraform_key"
+	key_name="$DOCKER_KEY"
 	instance_type="t2.micro"
-	security_groups=["jenkins_security_group"]
+	security_groups=["$DOCKER_SECURITY_GROUP"]
 	tags={
-		name="jenkins_instance"
+		name="docker_instance"
 	}
 }
 
