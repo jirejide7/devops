@@ -1,0 +1,36 @@
+cd ~
+ls
+git clone https://bitbucket.org/ananthkannan/mydockerrepo/
+ls
+cd mydockerrepo
+ls
+cd pythonApp
+ls
+
+cat Dockerfile
+ls
+
+cat app.py
+ls
+
+cat requirements.txt
+ls
+
+ls templates
+cat templates/index.html
+ls
+
+cat install_steps.txt
+
+sudo su
+docker images
+docker build . -t $MY_DOCKER_USERNAME/$PYTHON_APP_NAME
+docker images
+
+docker login
+$MY_DOCKER_USERNAME
+Enter
+$MY_DOCKER_PASSWORD
+
+docker images
+docker push $MYDOCKER_USERNAME/$PYTHON_APP_NAME
