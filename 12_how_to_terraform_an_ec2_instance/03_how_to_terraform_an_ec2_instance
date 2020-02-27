@@ -2,7 +2,11 @@
 cd ~
 mkdir $TERRAFORM_PROJECT
 cd $TERRAFORM_PROJECT
+ls
 ssh-keygen -f $TERRAFORM_KEY
+Enter
+Enter
+ls
 
 nano aws.tf
 provider "aws" {
