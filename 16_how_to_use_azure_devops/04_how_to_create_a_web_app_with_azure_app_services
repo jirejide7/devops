@@ -1,0 +1,22 @@
+# in browser
+https://portal.azure.com/
+- App services
+  - Add
+  - Web App
+    - Basics
+      - Project Details
+        - Subscription > 
+          - Resource Group > Create new > $WEB_APP_RESOURCE_GROUP_NAME
+      - Instance Details
+        - Name > $MY_FULL_NAME
+        - Publish > Code
+        - Runtime stack > Java 11 > Tomcat 9.0
+        - Operating System > Linux
+        - Region > Central US
+      - App Service Plan
+        - Sku and size > Change size
+          - Dev / Test
+            - F1 > 1 GB memory 60 minutes/day compute Free
+              - Apply
+  - Review + Create
+    - Create
