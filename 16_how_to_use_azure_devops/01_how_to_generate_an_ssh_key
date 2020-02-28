@@ -1,0 +1,6 @@
+ssh-keygen
+Enter
+Enter
+Enter
+cat ~/.ssh/id_rsa.pub
+copy contents of ~/.ssh/id_rsa.pub

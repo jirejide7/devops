@@ -1,0 +1,46 @@
+JENKINS_PORT=8080
+TOMCAT_PORT=8090
+SONARQUBE_PORT=9000
+
+# How to provision an EC2 instance at amazonaws.com
+AWS Console
+- EC2
+  - Launch Instance
+    - Choose Amazon Machine Image
+      - Ubuntu Server XX.XX LTS(HVM)
+        - t2.micro
+        - Next: Configure Instances
+        - Next: Add Storage
+        - Next: Add tags
+         - Add Tag - Key: name Value: AzureDevOpsEC2Instance
+        - Next: Configure Security Group
+          - Assign a Security Group
+            - Create a new security group
+              - Security group name: $DEVOPS_SECURITY_GROUP
+              - Description: $DEVOPS_SECURITY_GROUP_DESCRIPTION
+
+        - Port Range 22 > Source > My IP
+        - Add Rule > Port Range > 80
+        - Add Rule > Port Range > 443 > Source > Anywhere
+  - Review and Launch
+  - Launch
+    - Create a new key pair
+    - Key pair name > $AZURE_KEY_PAIR_NAME
+  - Download Key Pair
+  - Launch Instances
+    - View Instances
+      - Click on Pencil under Name > ubuntu > Enter
+  - Description
+    - IPv4 Public IP > copy this value      
+
+# at command line
+chmod 400 $AZURE_KEY_PAIR_NAME.pem
+ssh -i $AZURE_KEY_PAIR_NAME.pem ubuntu@$AZURE_DEVOPS_EC2_PUBLIC_IP
+yes
+sudo su 
+apt update
+apt -y full-upgrade
+Enter
+- install the package maintainer's version > Enter
+apt install --yes openjdk-11-jdk maven
+exit
