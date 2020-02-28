@@ -1,0 +1,31 @@
+# at terminal
+cd ~
+ls
+git clone git@ssh.dev.azure.com:v3/$USERNAME/$PROJECT_NAME/$PROJECT_NAME
+yes
+ls
+
+cd $PROJECT_NAME
+ls
+mvn archetype:generate -DgroupId=com.$LASTNAME - DartifactId=$FULL_NAME -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+ls
+
+cd $FULL_NAME
+ls
+cat pom.xml
+ls
+cd src
+ls
+cd main
+ls
+cd webapp
+ls
+cat index.jsp
+
+cd ~/$PROJECT_NAME
+
+git status
+git add .
+git commit -m "first commit to Azure repo"
+git push
+git status

@@ -1,0 +1,20 @@
+https://dev.azure.com/$MY_USERNAME/
+- Create a project to get start
+  - Projet name > $PROJECT_NAME
+  - Description > My first project in Azure DevOps
+  - Public or Private
+  - Create Project
+
+- Repos
+  - Clone to your computer
+    - SSH
+      - Manage SSH Keys
+        - New Key
+          - Name > AzureSSHKey
+          - Public Key Data > paste contents of ~/.ssh/id_rsa.pub
+
+- Username
+  - $PROJECT_NAME
+    - Repos
+      - SSH > copy link
+
