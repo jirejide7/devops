@@ -1,0 +1,29 @@
+https://dev.azure.com/$MY_USERNAME/
+- $PROJECT_NAME
+  - Pipelines
+    - Create Pipeline
+      - Use the classic editor to create a pipeline without YAML
+      - Select a source
+        - Azure Repos Git
+          - Continue
+      - Select a template
+        - Azure Web App for Java > Apply
+          - Name > $PUSH_BUILD_DEPLOY_PIPELINE
+        - Agent job 1 > Maven pom
+          - Maven POM file> $MY_FULL_NAME/pom.xml
+          - Goal(s) > clean install
+        - Stop Azure
+          - Azure subscription > Select subscription > Authorize
+          - App Service name > $MY_FULL_NAME
+        - Deploy Azure
+          - Select subsription
+          - App Service name > $MY_FULL_NAME
+        - Start Azure
+          - Select subsription
+          - App Service name > $MY_FULL_NAME          
+
+  - Save and Queue
+    - save comment > "my first pipeline in Azure DevOps"
+      - Save and Run
+      
+https://$MY_FULL_NAME.azurewebsites.net/$MY_FULL_NAME
