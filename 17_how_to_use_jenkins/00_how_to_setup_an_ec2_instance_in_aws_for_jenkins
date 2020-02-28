@@ -8,36 +8,31 @@ AWS Console
   - Launch Instance
     - Choose Amazon Machine Image
       - Ubuntu Server XX.XX LTS(HVM)
-        - t2.medium, 4GB Memory
+        - t2.micro
         - Next: Configure Instances
         - Next: Add Storage
         - Next: Add tags
-         - Add Tag - Key: name Value: ubuntu ec2 Instance
+         - Add Tag - Key: name Value: jenkins
         - Next: Configure Security Group
           - Assign a Security Group
             - Create a new security group
-              - Security group name: $UBUNTU_SECURITY_GROUP
-              - Description: $UBUNTU_SECURITY_GROUP_DESCRIPTION
+              - Security group name: $JENKINS_SECURITY_GROUP
+              - Description: $JENKINS_SECURITY_GROUP_DESCRIPTION
 
         - Port Range 22 > Source > My IP
-        - Add Rule > Port Range > $JENKINS_PORT
-        - Add Rule > Port Range > $TOMCAT_PORT
-        - Add Rule > Port Range > $SONARQUBE_PORT > Source > Anywhere
+        - Add Rule > Port Range > $JENKINS_PORT > Anywhere
   - Review and Launch
   - Launch
     - Create a new key pair
-    - Key pair name > $UBUNTU_KEY_PAIR_NAME
+    - Key pair name > $JENKINS_KEY_PAIR_NAME
   - Download Key Pair
   - Launch Instances
     - View Instances
-      - Click on Pencil under Name > ubuntu > Enter
+      - Click on Pencil under Name > jenkins > Enter
   - Description
     - IPv4 Public IP > copy this value      
 
 # at command line
-chmod 400 $KEY_PAIR_NAME.pem
-ssh -i $KEY_PAIR_NAME.pem ubuntu@$UBUNTU_EC2_PUBLIC_IP
+chmod 400 $JENKINS_KEY_PAIR_NAME.pem
+ssh -i $JENKINS_KEY_PAIR_NAME.pem ubuntu@$UBUNTU_EC2_PUBLIC_IP
 yes
-sudo apt update
-sudo apt -y full-upgrade
-- install the package maintainer's version > Enter
