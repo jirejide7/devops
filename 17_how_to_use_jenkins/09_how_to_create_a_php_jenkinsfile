@@ -1,0 +1,18 @@
+git checkout -b php
+nano Jenkinsfile
+pipeline {
+    agent { docker { image 'php' } }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'php --version'
+            }
+        }
+    }
+}
+CTRL+X
+y
+git status
+git add Jenkinsfile
+git commit -m "added Jenkinsfile for PHP"
+git push github php
