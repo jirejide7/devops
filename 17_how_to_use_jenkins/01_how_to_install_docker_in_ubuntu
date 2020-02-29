@@ -21,4 +21,6 @@ docker run -it ubuntu bash
 echo "Hello from inside a docker container in ubuntu"
 exit
 
+docker --version
+
 exit
