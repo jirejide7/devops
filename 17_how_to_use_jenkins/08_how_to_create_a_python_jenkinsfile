@@ -1,0 +1,18 @@
+git checkout -b python
+nano Jenkinsfile
+pipeline {
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    }
+}
+CTRL+X
+y
+git status
+git add Jenkinsfile
+git commit -m "added Jenkinsfile for Python"
+git push github python

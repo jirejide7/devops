@@ -11,6 +11,6 @@ node('docker') {
 CTRL+X
 y
 git status
-git add .
+git add Jenkinsfile
 git commit -m "added Java Jenkinsfile"
 git push github java
