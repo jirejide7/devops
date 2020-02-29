@@ -9,7 +9,9 @@ pipeline {
                 timeout(time: $TIME, unit: '$UNITS') {
                     retry($RETRIES) {
                         sh 'echo "The max time to try this step $RETRIES" times is $TIME $UNITS'
+                        sh 'echo "A Failure occured!"; exit 1'
                     }
+                    sh 'sleep $TIME + 1'
                 }
             }
         }
