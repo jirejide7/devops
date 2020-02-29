@@ -1,0 +1,26 @@
+UNIT=SECONDS|MINUTES|HOURS
+
+cd ~/jenkins_pipelines
+git checkout -b timeouts
+
+
+nano Jenkinsfile
+pipeline {
+    agent any
+    stages {
+        stage('StepWithTimeout') {
+            steps {
+                timeout(time: $TIME, unit: '$UNITS') {
+                    sh 'The max time for this command to run is $TIME $UNITS'
+                }
+            }
+        }
+    }
+}
+CTRL+X
+y
+
+git status
+git add Jenkinsfile
+git commit -m "created a Jenkinsfile with a timeout"
+git push github timeouts
