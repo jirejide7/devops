@@ -1,0 +1,21 @@
+# In browser
+http://$JENKINS_EC2_PUBLIC_IP:8080/
+Jenkins
+- New Item
+  - Enter an item name > 1st_multibranch_pipeline
+    - OK
+    - Branch Sources
+      - GitHub
+        - Credentials > Add > Jenkins
+          - Username > $USERNAME
+          - Password > $PASSWORD
+          - ID > $USERNAME_github
+          - Description > $USERNAME Github Key
+          - Add
+        - Credentials > $USERNAME/****** ($USERNAME github key)
+        - Repository Scan
+          - Owner > $USERNAME
+          - Repository > jenkins_pipelines
+          - Behaviors
+            - Discover branches > Strategy > All branches
+- Save
