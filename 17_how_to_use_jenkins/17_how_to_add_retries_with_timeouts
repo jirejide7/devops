@@ -1,0 +1,27 @@
+git checkout -b retry_w_timeout
+nano Jenkinsfile
+
+pipeline {
+    agent any
+    stages {
+        stage('RetryStepWithTimeout) {
+            steps {
+                timeout(time: $TIME, unit: '$UNITS') {
+                    retry($RETRIES) {
+                        sh 'echo "The max time to try this step $RETRIES" times is $TIME $UNITS'
+                    }
+                }
+            }
+        }
+    }
+}
+
+CTRL+X
+y
+Enter
+
+git status
+git add Jenkinsfile
+git commit -m "created a Jenkinsfile to retry a step but with a timeout"
+git push github retry_w_timeout
+git status
