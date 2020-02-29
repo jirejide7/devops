@@ -1,0 +1,19 @@
+ls
+wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+ls
+curl localhost:$JENKINS_PORT
+java -jar jenkins.war --httpPort=$JENKINS_PORT
+
+copy password
+
+
+# in browser 
+http://$JENKINS_EC2_PUBLIC_IP:$JENKINS_PORT
+Administrator Password > Paste password
+Install suggested plugins
+Username > $USERNAME
+Password > $PASSWORD
+Confirm password > $PASSWORD
+Full name > $FULL_NAME
+E-mail address > $EMAIL_ADDRESS
+- Save and Continue
