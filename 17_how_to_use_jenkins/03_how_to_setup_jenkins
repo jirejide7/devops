@@ -2,7 +2,7 @@ ls
 wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
 ls
 curl localhost:$JENKINS_PORT
-java -jar jenkins.war --httpPort=$JENKINS_PORT
+java -jar jenkins.war --httpPort=$JENKINS_PORT &
 
 copy password
 

@@ -1,0 +1,29 @@
+cd ~/jenkins_pipelines
+
+git branch
+git checkout master
+nano Jenkinsfile
+
+pipeline {
+    agent any
+    stages {
+        stage('Run Multiple Steps') {
+            steps {
+                sh 'echo "Executing command 1..."'
+                sh '''
+                    echo "Executing command 2..."
+                    echo "Executing command 3..."
+                    echo "Executing command N..."
+                    ls -lah
+                '''
+            }
+        }
+    }
+}
+CTRL+X
+y
+
+git status
+git add Jenkinsfile
+git commit -m "modified Jenkinsfile to run multiple steps"
+git push github master
