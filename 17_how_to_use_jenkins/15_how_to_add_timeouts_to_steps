@@ -12,6 +12,7 @@ pipeline {
             steps {
                 timeout(time: $TIME, unit: '$UNITS') {
                     sh 'echo "The max time for this command to run is $TIME $UNITS"'
+                    sh 'sleep $TIME + 1'
                 }
             }
         }
