@@ -1,0 +1,42 @@
+git checkout -b post
+
+nano Jenkinsfile
+
+pipeline {
+    agent any
+    stages {
+        stage('Fail') {
+            steps {
+                sh 'echo "Fail!"; exit 1'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'This always executes'
+        }
+        success {
+            echo 'This executes if the run succeeded'
+        }
+        failure {
+            echo 'This executes if the run failed'
+        }
+        unstable {
+            echo 'This runs if run is marked unstable'
+        }
+        changed {
+            echo 'This runs if the pipeline state changed'
+            echo 'e.g. the pipeline was failing and now succeeds '
+        }
+    }
+}
+
+CTRL+X
+y
+Enter
+
+git status
+git add Jenkinsfile
+git commit -m "created Jenkinsfile with post conditions"
+git push github post
+git status
