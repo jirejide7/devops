@@ -1,0 +1,9 @@
+docker run hello-world
+sudo docker run hello-world
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+docker run hello-world
+
+newgrp docker
+docker run hello-world
