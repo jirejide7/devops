@@ -3,7 +3,7 @@ apt update
 apt full-upgrade --yes
 Enter
 - install the package maintainer's version > Enter
-apt install openjdk-11-jdk uidmap --yes
+apt install openjdk-11-jdk --yes
 
 apt remove docker docker-engine docker.io containerd runc
 apt update
