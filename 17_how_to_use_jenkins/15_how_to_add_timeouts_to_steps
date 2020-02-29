@@ -11,7 +11,7 @@ pipeline {
         stage('StepWithTimeout') {
             steps {
                 timeout(time: $TIME, unit: '$UNITS') {
-                    sh 'The max time for this command to run is $TIME $UNITS'
+                    sh 'echo "The max time for this command to run is $TIME $UNITS"'
                 }
             }
         }
