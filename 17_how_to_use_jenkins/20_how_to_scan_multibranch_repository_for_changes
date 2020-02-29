@@ -1,0 +1,5 @@
+# in browser
+http://$JENKINS_EC2_INSTANCE
+Jenkins
+- 1st_multibranch_pipeline
+  - Scan Repository Now
