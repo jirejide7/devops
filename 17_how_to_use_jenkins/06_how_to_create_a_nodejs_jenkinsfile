@@ -1,0 +1,16 @@
+git checkout -b nodejs
+nano Jenkinsfile
+node('docker') {
+    checkout scm
+    stage('Build') {
+        docker.image('node:6.3').inside {
+            sh 'npm --version'
+        }
+    }
+}
+CTRL+X
+y
+git status
+git add .
+git commit -m "added NodeJS Jenkinsfile"
+git push github nodejs

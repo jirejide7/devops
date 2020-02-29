@@ -1,0 +1,16 @@
+git checkout -b ruby
+nano Jenkinsfile
+node('docker') {
+    checkout scm
+    stage('Build') {
+        docker.image('ruby').inside {
+            sh 'ruby --version'
+        }
+    }
+}
+CTRL+X
+y
+git status
+git add Jenkinsfile
+git commit -m "added Ruby Jenkinsfile"
+git push github ruby
