@@ -13,7 +13,9 @@ pipeline {
 
 CTRL+X
 y
+
 git status
 git add Jenkinsfile
 git commit -m "added Ruby Jenkinsfile"
 git push github ruby
+git status

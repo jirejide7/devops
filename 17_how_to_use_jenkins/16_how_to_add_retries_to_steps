@@ -1,0 +1,25 @@
+cd ~/jenkins_pipelines
+
+git checkout -b retries
+
+pipeline {
+    agent any
+    stages {
+        stage('StepWithRetries') {
+            steps {
+                retry($RETRIES) {
+                    sh 'echo "If this step fails, Jenkins would retry it $RETRIES times"'
+                }
+            }
+        }
+    }
+}
+CTRL+X
+y
+Enter
+
+git status
+git add Jenkinsfile
+git commit -m "created a Jenkinsfile with retries"
+git push github retries
+git status

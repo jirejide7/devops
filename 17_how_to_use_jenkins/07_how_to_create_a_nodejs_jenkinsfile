@@ -16,3 +16,4 @@ git status
 git add Jenkinsfile
 git commit -m "Jenkinsfile for NodeJS"
 git push github nodejs
+git status

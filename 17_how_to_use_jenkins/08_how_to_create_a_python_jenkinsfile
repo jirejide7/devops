@@ -16,3 +16,4 @@ git status
 git add Jenkinsfile
 git commit -m "added Jenkinsfile for Python"
 git push github python
+git status

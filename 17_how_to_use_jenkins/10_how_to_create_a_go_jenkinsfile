@@ -29,6 +29,9 @@ pipeline {
 }
 CTRL+X
 y
+
+git status
 git add Jenkinsfile
 git commit -m "corrected Jenkinsfile for Go to include steps"
 git push github go
+git status

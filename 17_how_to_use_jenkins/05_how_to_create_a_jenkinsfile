@@ -17,3 +17,4 @@ git status
 git add Jenkinsfile
 git commit -m "Added Hello World Jenkinsfile"
 git push github master
+git status

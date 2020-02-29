@@ -16,3 +16,4 @@ git status
 git add Jenkinsfile
 git commit -m "added Jenkinsfile for Java" 
 git push github java
+git status
