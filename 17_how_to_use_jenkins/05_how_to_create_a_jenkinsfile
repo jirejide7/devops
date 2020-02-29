@@ -1,0 +1,19 @@
+git checkout master
+nano Jenkinsfile
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                sh 'echo "Hello World!"'
+            }
+        }
+    }
+}
+CTRL+X
+y
+
+git status
+git add Jenkinsfile
+git commit -m "Added Hello World Jenkinsfile"
+git push github master
