@@ -1,0 +1,16 @@
+git checkout -b java
+nano Jenkinsfile
+node('docker') {
+    checkout scm
+    stage('Build') {
+        docker.image('maven:3.3.3').inside {
+            sh 'mvn --version'
+        }
+    }
+}
+CTRL+X
+y
+git status
+git add .
+git commit -m "added Java Jenkinsfile"
+git push github java
