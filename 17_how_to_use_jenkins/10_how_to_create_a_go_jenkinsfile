@@ -4,9 +4,7 @@ pipeline {
     agent { docker { image 'golang' } }
     stages {
         stage('Build) {
-            steps {
-                sh 'go version'
-            }
+            sh 'go version'
         }
     }
 }
@@ -15,4 +13,22 @@ y
 git status
 git add Jenkinsfile
 git commit -m "added Jenkinsfile for Go"
+git push github go
+
+git checkout -b go
+nano Jenkinsfile
+pipeline {
+    agent { docker { image 'golang' } }
+    stages {
+        stage('Build) {
+            steps {
+                sh 'go version'
+            }
+        }
+    }
+}
+CTRL+X
+y
+git add Jenkinsfile
+git commit -m "corrected Jenkinsfile for Go to include steps"
 git push github go

@@ -16,7 +16,7 @@ git status
 git add README.md
 git status
 git commit -m "first commit"
-git remote add github https://github.com/$USERNAME/jenkins_pipelines.git
+git remote add github git@github.com:$USERNAME/jenkins_pipelines.git
 git push -u github master
 
 ssh-keygen -t rsa -C "$YOUR_EMAIL_ADDRESS"
