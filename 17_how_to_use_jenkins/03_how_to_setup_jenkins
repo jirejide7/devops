@@ -6,7 +6,6 @@ java -jar jenkins.war --httpPort=$JENKINS_PORT
 
 copy password
 
-
 # in browser 
 http://$JENKINS_EC2_PUBLIC_IP:$JENKINS_PORT
 Administrator Password > Paste password
