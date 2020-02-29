@@ -1,0 +1,49 @@
+# In browser
+https://github/new
+Create a new repository
+- Repository name > jenkins_pipelines
+- Description > My first pipeline repository
+
+Create repository
+
+# At terminal
+ssh -i $JENKINS_KEY_PAIR.pem ubuntu@$JENKINS_EC2_PUBLIC_IP
+
+mkdir jenkins_pipelines && cd jenkins_pipelines
+echo "# jenkins_pipelines" >> README.md
+git init
+git status
+git add README.md
+git status
+git commit -m "first commit"
+git remote add github https://github.com/$USERNAME/jenkins_pipelines.git
+git push -u github master
+
+ssh-keygen -t rsa -C "$YOUR_EMAIL_ADDRESS"
+Enter
+Enter
+Enter
+cat ~/.ssh/id_rsa.pub
+
+# In browser
+https://github.com 
+Profile
+- Settings
+  - SSH and GPG Keys
+    - New SSH key
+      - Title > JenkinsEC2Key
+      - Key > Paste contents of ~/.ssh/id_rsa.pub
+      - Add SSH Key
+
+# At terminal
+ssh -T git@github.com
+
+cat ~/.gitconfig
+git config --global user.name "<your_name>"
+git config --global user.email "<your_email_address>"
+git config --global color.ui true
+cat ~/.gitconfig
+
+git status
+git push -u github master
+git status
