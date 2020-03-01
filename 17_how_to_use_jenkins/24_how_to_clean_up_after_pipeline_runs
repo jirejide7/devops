@@ -1,0 +1,42 @@
+cd ~/jenkins_pipelines
+
+git checkout -b teardown
+nano Jenkinsfile
+
+pipeline {
+    agent any
+    stages {
+        stage('ListFiles') {
+            steps {
+                sh 'ls'
+            }
+        }
+    }
+    post {
+        always {
+            echo "I just finished. Deleting the workspace now..."
+            deleteDir()
+        }
+        success {
+            echo "I completed successfully!"
+        }
+        failure {
+            echo "I failed"
+        }
+        unstable {
+            echo "I am in an unstable state"
+        }
+        changed {
+            echo "Things were different before - something changed."
+        }
+    }    
+}
+
+CTRL+X
+y
+
+git status
+git add Jenkinsfile
+git commit -m "created Jenkinsfile with teardown step"
+git push github teardown
+git status
