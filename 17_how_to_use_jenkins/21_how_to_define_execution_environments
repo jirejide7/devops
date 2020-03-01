@@ -1,0 +1,25 @@
+cd ~/jenkins_pipelines
+
+git checkout -b workspace
+
+pipeline {
+    agent any
+    stages {
+        stage('WorkspaceDirectory') {
+            steps {
+                sh 'pwd'
+                sh 'whoami'
+            }
+        }
+    }
+}
+
+CTRL+X
+y
+Enter
+
+git status
+git add Jenkinsfile
+git commit -m "created Jenkinsfile to show Jenkins' workspace"
+git push github workspace
+git status
