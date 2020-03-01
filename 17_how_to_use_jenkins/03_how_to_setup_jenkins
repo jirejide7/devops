@@ -4,7 +4,7 @@ ls
 curl localhost:$JENKINS_PORT
 java -jar jenkins.war --httpPort=$JENKINS_PORT &
 
-copy password
+# copy password
 
 # in browser 
 http://$JENKINS_EC2_PUBLIC_IP:$JENKINS_PORT
