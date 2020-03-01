@@ -1,0 +1,37 @@
+cd ~/jenkins_pipelines
+
+git checkout-b continous_delivery
+nano Jenkinsfile
+
+pipeline {
+    agent any
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building ...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing 1, 2, 3 ...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying ...'
+            }
+        }
+    }
+}
+
+CTRL+x
+y
+
+git status
+git add Jenkinsfile
+git commit -m "created a Jenkinsfile for a basic Continuous Delivery pipeline"
+git push github continuous_delivery
+git status
