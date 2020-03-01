@@ -1,0 +1,53 @@
+cd ~/jenkins_pipelines
+
+git checkout -b human_input
+nano Jenkinsfile
+pipeline {
+    agent any
+    stages {
+
+        stage('Build') { 
+            steps {
+                echo 'I'm Building...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'I'm Testing...'
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                echo 'I'm Deploying to Staging ...'
+                echo 'I'm Testing the Staging Environment...'
+            }
+        }
+
+        stage('Human Approval') {
+            steps {
+                echo 'I'm waiting on approval before continuing to production'
+                timeout(time: 60, unit: 'SECONDS') {
+                    input "Does the staging environment look righteous?"
+                }
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                echo 'I'm Deploying to Production ...'
+            }
+        }
+    }
+}
+
+CTRL+X
+y
+Enter
+
+git status
+git add Jenkinsfile
+git commit -m "created a Jenkinsfile that requires Human Input to proceed"
+git push github human_input
+git status
