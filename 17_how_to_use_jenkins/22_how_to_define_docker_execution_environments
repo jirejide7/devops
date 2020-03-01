@@ -1,6 +1,6 @@
 cd ~/jenkins_pipelines
 
-git checkout -b docker_workspace
+git checkout -b docker_agent
 
 nano Jenkinsfile
 pipeline {
@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages {
-        stage('DockerWorkspace') {
+        stage('DockerAgentWorkspace') {
             steps {
                 sh 'node --version'
                 sh 'pwd'
@@ -25,6 +25,6 @@ Enter
 
 git status
 git add Jenkinsfile
-git commit -m "created Jenkinsfile to show docker workspace"
+git commit -m "created Jenkinsfile to show docker agent workspace"
 git push github docker_workspace
 git status

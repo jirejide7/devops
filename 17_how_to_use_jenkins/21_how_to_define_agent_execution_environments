@@ -1,11 +1,11 @@
 cd ~/jenkins_pipelines
 
-git checkout -b workspace
+git checkout -b agent_workspace
 
 pipeline {
     agent any
     stages {
-        stage('WorkspaceDirectory') {
+        stage('AgentWorkspaceDirectory') {
             steps {
                 sh 'pwd'
                 sh 'whoami'
@@ -20,6 +20,6 @@ Enter
 
 git status
 git add Jenkinsfile
-git commit -m "created Jenkinsfile to show Jenkins' workspace"
-git push github workspace
+git commit -m "created Jenkinsfile to show Jenkins' agent workspace"
+git push github agent_workspace
 git status
