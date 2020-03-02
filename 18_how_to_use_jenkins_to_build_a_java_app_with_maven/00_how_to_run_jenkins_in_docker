@@ -1,24 +1,25 @@
-docker network create jenkins-network
-docker volume create jenkins-docker-certificates
-docker volume create jenkins-data
+docker network create jenkins_network
+docker volume create jenkins_docker_certificates
+docker volume create jenkins_data
 
 docker container run --name $JENKINS_DOCKER --rm --detach \
   --privileged --network $JENKINS_NETWORK \
-  --env DOCKER_TLS_CERTDIR=/certs \
-  --volume jenkins-docker-certificates:/certificates/client \
-  --volume jenkins-data:/var/jenkins_home \
+  --env DOCKER_TLS_CERTDIR=/certificates \
+  --volume jenkins_docker_certificates:/certificates/client \
+  --volume jenkins_data:/var/jenkins_home \
   --volume "$HOME":/home \
   docker:dind
 
 docker container run --name $JENKINS_BLUEOCEAN --rm --detach \
   --network $JENKINS_NETWORK \
   --env DOCKER_HOST=tcp://$JENKINS_NETWORK:2376 \
-  --env DOCKER_CERT_PATH=/certificates/client
+  --env DOCKER_CERT_PATH=/certificates/client \
   --env DOCKER_TLS_VERIFY=1 \
-  --volume jenkins-data:/var/jenkins_home \
-  --volume jenkins-docker-certs:/certificates/client:ro \
+  --volume jenkins_data:/var/jenkins_home \
+  --volume jenkins_docker_certificates:/certificates/client:ro \
   --volume "$HOME":/home --publish $JENKINS_PORT:$JENKINS_PORT \
   jenkinsci/blueocean
 
 
+curl localhost:$JENKINS_PORT
 curl localhost:$JENKINS_PORT
