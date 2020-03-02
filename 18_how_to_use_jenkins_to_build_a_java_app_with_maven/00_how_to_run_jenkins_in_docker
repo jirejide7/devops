@@ -20,6 +20,8 @@ docker container run --name $JENKINS_BLUEOCEAN --rm --detach \
   --volume "$HOME":/home --publish $JENKINS_PORT:$JENKINS_PORT \
   jenkinsci/blueocean
 
+curl localhost:$JENKINS_PORT
+curl localhost:$JENKINS_PORT
 
-curl localhost:$JENKINS_PORT
-curl localhost:$JENKINS_PORT
+docker container exec -it jenkins_blueocen bash
+cat /var/jenkins_home/secrets/initialAdminPassword
