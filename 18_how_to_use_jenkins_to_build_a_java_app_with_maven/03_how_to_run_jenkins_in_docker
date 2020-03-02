@@ -1,3 +1,4 @@
+clear
 docker network ls
 docker network create jenkins_network
 docker network ls
