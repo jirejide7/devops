@@ -1,0 +1,14 @@
+# In browser
+http://$JENKINS_EC_INSTANCE_PUBLIC_IP:$JENKINS_PORT
+paste contents of /var/jenkins_home/secrets/initialAdminPassword
+
+Install suggested plugins
+Create First Admin User
+- Username > $USERNAME
+- Password > $PASSWORD
+- Confirm Password > $PASSWORD
+- Full name > $FULL_NAME
+- E-mail address > $USERNAME@DOMAIN
+Save and Continue
+Save and Finish
+Start using Jenkins
