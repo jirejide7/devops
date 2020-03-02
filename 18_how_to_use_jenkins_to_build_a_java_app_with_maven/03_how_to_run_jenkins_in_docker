@@ -1,6 +1,12 @@
+docker network ls
 docker network create jenkins_network
+docker network ls
+
+docker volume ls
 docker volume create jenkins_docker_certificates
+docker volume ls
 docker volume create jenkins_data
+docker volume ls
 
 docker container run --name $JENKINS_DOCKER --rm --detach \
   --privileged --network $JENKINS_NETWORK \
