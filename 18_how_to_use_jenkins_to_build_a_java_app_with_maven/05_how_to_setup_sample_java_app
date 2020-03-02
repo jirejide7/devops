@@ -1,0 +1,40 @@
+# In browser
+https://github.com/jenkins-docs/simple-java-maven-app
+Fork
+Clone or download
+copy link > Use HTTPS
+
+# at commandline
+ls
+git clone https://github.com/$USERNAME/simple-java-maven-app
+ls
+
+cat README.md
+ls
+
+cat pom.xml
+ls
+
+ls jenkins
+cat jenkins/Jenkinsfile
+ls jenkins
+ls jenkins/scripts
+ls
+
+ls src
+ls src/main
+ls src/main/java
+ls src/main/java/com
+ls src/main/java/com/mycompany
+ls src/main/java/com/mycompany/app
+cat src/main/java/com/mycompany/app/App.java
+
+ls 
+ls src
+ls src/test
+ls src/test/java
+ls src/test/java/com
+ls src/test/java/com/mycompany
+ls src/test/java/com/mycompany/app
+cat src/test/java/com/mycompany/app/AppTest.java
+
