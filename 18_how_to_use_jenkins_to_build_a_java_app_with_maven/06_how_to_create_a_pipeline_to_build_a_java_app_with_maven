@@ -1,0 +1,15 @@
+# In browser
+http://$JENKINS_EC2_INSTANCE_PUBLIC_IP:$JENKINS_PORT
+Jenkins
+- New Item
+  Name > simple-java-maven-app
+  Pipeline
+  OK
+  Description > an entry-level Pipeline showing how to use Jenkins to build a simple Java app with Maven
+  Pipeline 
+  - Definition
+    - Pipeline script from SCM
+    - SCM > Git
+      - Repository URL
+        directory > /home/ubuntu/simple-java-maven-app
+       Save
